@@ -1,11 +1,16 @@
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router';
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from 'react-router';
+import { asyncsigninuser } from "../store/actions/userActions";
 
 const signin = () => {
-  const { register, handleSubmit, reset } = useForm()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { register, handleSubmit } = useForm()
 
-  const signinhandler = () => {
-    reset()
+  const signinhandler = (user) => {
+    dispatch(asyncsigninuser(user));
+    navigate("/");
   }
   return (
     <>

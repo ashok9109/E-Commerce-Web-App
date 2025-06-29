@@ -1,11 +1,20 @@
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router';
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from 'react-router';
+import { asyncsignupuser } from "../store/actions/userActions";
+import { nanoid } from "@reduxjs/toolkit";
 
 const signup = () => {
-  const { register, handleSubmit, reset } = useForm()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { register, handleSubmit } = useForm()
 
-  const signuphandler = () => {
-    reset()
+  const signuphandler = (user) => {
+    user.id = nanoid();
+    user.isAdmin = false;
+    user.cart = [];
+    dispatch(asyncsignupuser(user));
+    navigate("/signin");
   }
   return (
     <>
@@ -30,7 +39,7 @@ const signup = () => {
             className='border-b text-xl p-2 '
             type="number" placeholder='number' />
           <button
-            className='bg-blue-600 text-white text-xl px-4 py-2 mt-4' >Login</button>
+            className='bg-blue-600 text-white text-xl px-4 py-2 mt-4' >Submit</button>
           <p>Already have an account {""}
             <Link className='text-blue-600'
               to='/signin' >signin</Link></p>
