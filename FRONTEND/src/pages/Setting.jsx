@@ -38,11 +38,11 @@ const Setting = () => {
           <input
             {...register("username")}
             className='text-2xl p-4 mb-6 border-b '
-            name='username' type="text" placeholder='admin' />
+            name='username' type="text" placeholder='Ashok Yadav' />
           <input
             {...register("email")}
             className='text-2xl p-4 mb-6 border-b '
-            name='email' type="text" placeholder='admin@gmail.com' />
+            name='email' type="text" placeholder='ashokyadavrtp200@gmail.com' />
           <input
             {...register("password")}
             className='text-2xl p-4 mb-6 border-b '
