@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { asyncdeleteuser, asynclogoutuser, asyncupdateuser } from '../store/actions/userActions';
 import { useNavigate } from 'react-router';
+import images from '../images/setting.png'
 
 const Setting = () => {
   const { user } = useSelector((state) => state.userReducer)
@@ -25,42 +26,57 @@ const Setting = () => {
     navigate("/signin")
   }
 
-  const DeleteHandler = () =>{
+  const DeleteHandler = () => {
     dispatch(asyncdeleteuser(user.id))
   }
 
   return (
     <>
-      <div className='pt-10 pl-7'>
-        <form
-          onSubmit={handleSubmit(UpdateHandler)}
-          className='h-140 w-130 flex flex-col p-5 border-2 ' >
-          <input
-            {...register("username")}
-            className='text-2xl p-4 mb-6 border-b '
-            name='username' type="text" placeholder='Ashok Yadav' />
-          <input
-            {...register("email")}
-            className='text-2xl p-4 mb-6 border-b '
-            name='email' type="text" placeholder='ashokyadavrtp200@gmail.com' />
-          <input
-            {...register("password")}
-            className='text-2xl p-4 mb-6 border-b '
-            name='password' type="text" placeholder='*******' />
-          <button
-            className='text-2xl px-6 py-4 text-white bg-blue-600 mb-4'
-          >Update User</button>
-          <button
-          onClick={DeleteHandler}
-            type='button'
-            className='text-2xl px-6 py-4 text-white bg-blue-600 mb-4'
-          >Delete User</button>
-          <button
-            onClick={LogoutHandler}
-            type='button'
-            className='text-2xl px-6 py-4 text-white bg-blue-600 mb-4'
-          >Logout User</button>
-        </form>
+      <div className="h-full flex items-center justify-center m-7 ">
+        <div className='h-140 w-320 flex items-center justify-center shadow-lg shadow-black ' >
+          <img className='h-140 w-320' src={images} alt="" />
+          <div className='h-130 w-145 absolute left-[120px]' >
+            <h1 className='ml-10 text-blue-600 text-2xl font-bold underline' >Settings</h1>
+            <form
+              onSubmit={handleSubmit(UpdateHandler)}
+              className='h-full w-full flex flex-col p-5 ' >
+              <div className='w-40 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg ' >
+                <input
+                  {...register("username")}
+                  className="outline-0 w-31"
+                  type="text" placeholder='ashok.yadav' />
+                <h1 className="text-sm" ><i className="ri-user-fill"></i></h1>
+              </div>
+              <div className='w-80 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
+                <input
+                  {...register("email")}
+                  className="outline-0 w-90"
+                  type="email" placeholder='ashokyadavrtp200@gmail.com' />
+                <h1 className="text-sm" ><i className="ri-mail-fill"></i></h1>
+              </div>
+              <div className='w-30 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
+                <input
+                  {...register("password")}
+                  className="outline-0 w-20"
+                  type="pasword" placeholder='*******' />
+                <h1 className="text-sm" ><i className="ri-git-repository-private-fill"></i></h1>
+              </div>
+              <button
+                className='text-2xl px-6 py-4 text-white bg-black mb-4'
+              >Update User</button>
+              <button
+                onClick={DeleteHandler}
+                type='button'
+                className='text-2xl px-6 py-4 text-white bg-yellow-500 mb-4'
+              >Delete User</button>
+              <button
+                onClick={LogoutHandler}
+                type='button'
+                className='text-2xl px-6 py-4 text-white bg-red-600 mb-4'
+              >Logout User</button>
+            </form>
+          </div>
+        </div>
       </div>
     </>
   )
