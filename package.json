@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "react-toastify": "^11.0.5"
+  },
+  "devDependencies": {
+    "@designbycode/tailwindcss-reflection": "^1.0.0"
   }
 }
