@@ -34,9 +34,8 @@ const Setting = () => {
     <>
       <div className="h-full flex items-center justify-center m-7 ">
         <div className='h-140 w-320 flex items-center justify-center shadow-lg shadow-black ' >
-          <img className='h-140 w-320' src={images} alt="" />
-          <div className='h-130 w-145 absolute left-[120px]' >
-            <h1 className='ml-10 text-blue-600 text-2xl font-bold underline' >Settings</h1>
+          <div className='h-130 w-145 ' >
+            <h1 className='ml-10 text-teal-400 text-2xl font-bold underline' >Settings</h1>
             <form
               onSubmit={handleSubmit(UpdateHandler)}
               className='h-full w-full flex flex-col p-5 ' >
@@ -67,14 +66,17 @@ const Setting = () => {
               <button
                 onClick={DeleteHandler}
                 type='button'
-                className='text-2xl px-6 py-4 text-white bg-yellow-500 mb-4'
+                className='text-2xl px-6 py-4 text-white bg-teal-400 mb-4'
               >Delete User</button>
               <button
                 onClick={LogoutHandler}
                 type='button'
-                className='text-2xl px-6 py-4 text-white bg-red-600 mb-4'
+                className='text-2xl px-6 py-4 text-white bg-yellow-500 mb-4'
               >Logout User</button>
             </form>
+          </div>
+          <div>
+            <img className='h-140 w-150 ' src={images} alt="" />
           </div>
         </div>
       </div>
