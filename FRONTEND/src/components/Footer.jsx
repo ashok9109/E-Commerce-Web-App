@@ -16,36 +16,36 @@ const Footer = () => {
                             <h1>Corporate Information</h1>
                         </div>
                         <div className='flex flex-col mb-10' >
-                            <h className='opacity-50' >HELP</h>
-                            <h>Payments</h>
-                            <h>Shipping</h>
-                            <h>Cancellation & Return</h>
-                            <h>FAQ</h>
+                            <h1 className='opacity-50' >HELP</h1>
+                            <h1>Payments</h1>
+                            <h1>Shipping</h1>
+                            <h1>Cancellation & Return</h1>
+                            <h1>FAQ</h1>
                         </div>
                         <div className='flex flex-col' >
-                            <h className='opacity-50' >CONSUMER POLICY</h>
-                            <h>Cancellation & Return</h>
-                            <h>Terms Of Use</h>
-                            <h>Scurity</h>
-                            <h>Privacy</h>
-                            <h>Sitamap</h>
-                            <h>ERP Compaliance</h>
+                            <h1 className='opacity-50' >CONSUMER POLICY</h1>
+                            <h1>Cancellation & Return</h1>
+                            <h1>Terms Of Use</h1>
+                            <h1>Scurity</h1>
+                            <h1>Privacy</h1>
+                            <h1>Sitamap</h1>
+                            <h1>ERP Compaliance</h1>
                         </div>
                     </div>
-                    <div className='h-60 w-110 flex flex-col items-center justify-center bg-gray-300 text-black' >
+                    <div className='h1-60 w-110 flex flex-col items-center justify-center bg-gray-300 text-black' >
                         <h1 className='opacity-50 mb-4' >NAME & EMAIL</h1>
                         <h1>-Ashok Yadav-</h1>
                         <h1>ashokyadavrtp200@gmail.com</h1>
-                        <div className='text-2xl mt-4'>
-                            <h><i className="ri-instagram-line"></i></h>
-                            <h><i className="ri-facebook-box-fill"></i></h>
-                            <h><i className="ri-linkedin-box-fill"></i></h>
-                            <h></h>
+                        <div className='flex text-2xl mt-4'>
+                            <h1><i className="ri-instagram-line"></i></h1>
+                            <h1><i className="ri-facebook-box-fill"></i></h1>
+                            <h1><i className="ri-linkedin-box-fill"></i></h1>
+                            <h1></h1>
                         </div>
                     </div>
                 </div>
-                <div className='h-23 w-full border-t-1 text-white ' >
-                    <div className='h-full w-full flex items-center justify-center gap-10' >
+                <div className='h1-23 w-full border-t-1 text-white ' >
+                    <div className='h1-full w-full flex items-center justify-center gap-10' >
                         <h1>Become a seller</h1>
                         <h1>Advertise</h1>
                         <h1>Gift Cards</h1>

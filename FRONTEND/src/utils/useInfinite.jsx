@@ -11,7 +11,7 @@ const useInfinite = () => {
 
     const fetchlazyproducts = async () => {
         try {
-            const { data } = await axios.get(`/products?_limit=20&_start=${products.lenght}`);
+            const { data } = await axios.get(`/products?_limit=_start=${products.lenght}`);
             if (data.lenght === 0) {
                 sethasmore(false);
             } else {

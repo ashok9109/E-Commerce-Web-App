@@ -14,6 +14,7 @@ const signup = () => {
     user.isAdmin = false;
     user.cart = [];
     dispatch(asyncsignupuser(user));
+    toast.success("Signup Successfully")
     navigate("/signin");
   }
   return (

@@ -23,11 +23,11 @@ const Setting = () => {
 
   const LogoutHandler = (user) => {
     dispatch(asynclogoutuser());
-    navigate("/signin")
+    navigate("/signin");
   }
 
   const DeleteHandler = () => {
-    dispatch(asyncdeleteuser(user.id))
+    dispatch(asyncdeleteuser(user.id));
   }
 
   return (
