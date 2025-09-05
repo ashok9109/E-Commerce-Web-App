@@ -17,14 +17,8 @@ export const asynccurrentuser = () => async (dispatch, getState) => {
 
 export const asyncsigninuser = (user) => async (dispatch, getState) =>{
     try {
-        const {data} = await axios.get(`/users?email=${user.email}&password=${user.password}`);
-        if(data[0]){
-            localStorage.setItem("user",JSON.stringify(data[0]));
-            dispatch(asynccurrentuser());
-            console.log("user login");
-        }else{
-            console.log("Wrong Email & Password ");
-        }
+        await axios.post("/api/auth/user/login", user);
+        console.log("User login")
     } catch (error) {
         console.log(error);
     }
@@ -32,7 +26,7 @@ export const asyncsigninuser = (user) => async (dispatch, getState) =>{
 
 export const asyncsignupuser = (user) => async (dispatch, getState) => {
     try {
-        await axios.post("/users", user);
+        await axios.post("/api/auth/user/register", user);
         console.log("User Registered")
     } catch (error) {
         console.log(error);

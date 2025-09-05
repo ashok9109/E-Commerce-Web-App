@@ -32,8 +32,8 @@ const Setting = () => {
 
   return (
     <>
-      <div className="h-full flex items-center justify-center m-7 ">
-        <div className='h-140 w-320 flex items-center justify-center shadow-lg shadow-black ' >
+      <div className="h-full flex items-center justify-center  pt-20">
+        <div className='h-140 w-320 flex items-center justify-center bg-black shadow-lg shadow-black ' >
           <div className='h-130 w-145 ' >
             <h1 className='ml-10 text-teal-400 text-2xl font-bold underline' >Settings</h1>
             <form
@@ -61,22 +61,22 @@ const Setting = () => {
                 <h1 className="text-sm" ><i className="ri-git-repository-private-fill"></i></h1>
               </div>
               <button
-                className='text-2xl px-6 py-4 text-white bg-black mb-4'
+                className='text-2xl px-6 py-4 text-white bg-yellow-500 mb-4'
               >Update User</button>
               <button
                 onClick={DeleteHandler}
                 type='button'
-                className='text-2xl px-6 py-4 text-white bg-teal-400 mb-4'
+                className='text-2xl px-6 py-4 text-white bg-teal-600 mb-4'
               >Delete User</button>
               <button
                 onClick={LogoutHandler}
                 type='button'
-                className='text-2xl px-6 py-4 text-white bg-yellow-500 mb-4'
+                className='text-2xl px-6 py-4 text-white bg-red-600 mb-4'
               >Logout User</button>
             </form>
           </div>
-          <div>
-            <img className='h-140 w-150 ' src={images} alt="" />
+          <div className=' ' >
+            <img className='h-140 w-150  ' src={images} alt="" />
           </div>
         </div>
       </div>

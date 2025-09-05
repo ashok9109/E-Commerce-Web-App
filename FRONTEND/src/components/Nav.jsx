@@ -7,7 +7,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className='flex items-center justify-between bg-black text-xl text-white p-2 mt-3 ml-7 mr-7 rounded-lg pl-15 pr-15' >
+            <nav className=' h-15 w-370 flex items-center justify-between bg-black text-xl text-white p-2 mt-3 ml-5  mr-7 rounded-lg pl-15 pr-15 absolute z-99' >
                 <div >
                     <h1 className="text-blue-600"> <span className="text-red-600">-V-</span> card.</h1>
                 </div>
@@ -20,9 +20,12 @@ const Nav = () => {
                     </div>
                 </div>
                 <div className="flex gap-15">
-                    <NavLink
+                 <NavLink
                         className={({ isActive }) => (isActive ? "text-white bg-orange-600 px-3 py-1 rounded-lg" : "")}
                         to='/'>Home</NavLink>
+                    <NavLink
+                        className={({ isActive }) => (isActive ? "text-white bg-orange-600 px-3 py-1 rounded-lg" : "")}
+                        to='/product'>Product</NavLink>
                     <NavLink
                         className={({ isActive }) => (isActive ? "text-white bg-orange-600 px-3 py-1 rounded-lg" : "")}
                         to='/About'>About</NavLink>

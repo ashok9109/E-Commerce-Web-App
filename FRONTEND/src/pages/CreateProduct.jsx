@@ -21,7 +21,7 @@ const CreateProduct = () => {
 
   return (
     <>
-      <div className="h-screen w-screen flex items-center justify-center text-white  " >
+      <div className="h-screen w-screen flex items-center justify-center text-white pt-30 " >
         <div className="h-140 w-330 flex items-center justify-center text-black bg-white shadow-lg shadow-black mb-22 ">
           <div className="h-140 w-115 flex flex-col items-center justify-center " >
             <img className="h-100 mb-10  p-7" src={createproduct} alt="" />

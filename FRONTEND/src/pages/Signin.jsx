@@ -17,16 +17,16 @@ const signin = () => {
   return (
     <>
       <div className="h-screen w-screen flex items-center justify-center bg-white ">
-        <div className="h-130 w-230 flex items-center justify-center rounded-lg relative overflow-hidden shadow-lg shadow-black mb-10 ">
-          <div className="h-130 w-140 bg-black absolute left-[-140px] rounded-[150px]"></div>
-          <div className=' h-130 w-115 flex items-center justify-center flex-col rounded-lg z-[999] '>
+        <div className="h-150 w-230 flex items-center justify-center rounded-lg relative overflow-hidden shadow-lg shadow-black mt-19  ">
+          <div className="h-150 w-140 bg-black absolute left-[-140px] rounded-[150px]"></div>
+          <div className=' h-150 w-115 flex items-center justify-center flex-col rounded-lg z-[999] '>
             <h1 className=" font-sans text-3xl font-bold mb-4 text-white ">HELLO, WELCOME!</h1>
             <p className="opacity-70 text-white ">Don,t have an account ?</p>
             <Link
               className='text-white border-2 px-10 py-2 text-sm rounded-lg mt-3 hover:bg-gray-800'
               to='/signup' >Register</Link>
           </div>
-          <div className='h-130 w-115 flex items-center justify-center bg-white ' >
+          <div className='h-150 w-115 flex items-center justify-center bg-white ' >
             <form
               onSubmit={handleSubmit(signinhandler)}
               className=' h-full w-full flex items-center justify-center  flex-col rounded-lg' >

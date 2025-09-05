@@ -4,6 +4,7 @@ import aboutpic from '../images/aboutpic.png'
 const About = () => {
   return (
     <>
+    <div className='h-full w-full pt-18' >
       <div className="h-154 w-370 bg-black rounded-lg ml-7 mt-2 " >
         <div className="h-full w-full flex items-center justify-center" >
           <div className="h-full w-170 flex flex-col text-white" >
@@ -25,6 +26,8 @@ const About = () => {
           </div>
         </div>
       </div>
+
+    </div>
     </>
   )
 }
