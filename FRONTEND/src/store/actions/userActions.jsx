@@ -17,10 +17,12 @@ export const asynccurrentuser = () => async (dispatch, getState) => {
 
 export const asyncsigninuser = (user) => async (dispatch, getState) =>{
     try {
-        await axios.post("/api/auth/user/login", user);
+        const {data} = await axios.post("/api/auth/user/login", user);
+        dispatch(loginuser(data.user))
+        localStorage.setItem("user", JSON.stringify(data.user));
         console.log("User login")
     } catch (error) {
-        console.log(error);
+        console.log(error.response.data)
     }
 };
 

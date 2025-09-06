@@ -8,23 +8,27 @@ import { toast } from "react-toastify";
 const signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
 
   const signuphandler = (user) => {
-    let newUserObj = {
-      fullName: {
-        firstName: user.firstName,
-        lastName: user.lastName
-      },
-      email: user.email,
-      password: user.password
+    try {
+      let newUserObj = {
+        fullName: {
+          firstName: user.firstName,
+          lastName: user.lastName
+        },
+        email: user.email,
+        password: user.password,
+        role: user.role,
+        id: nanoid()
+      }
+      dispatch(asyncsignupuser(newUserObj));
+      toast.success("Signup Successfully")
+      navigate("/signin");
 
+    } catch (error) {
+      console.log("Register form error", error)
     }
-    user.id = nanoid();
-    user.isAdmin = false;
-    dispatch(asyncsignupuser(newUserObj));
-    toast.success("Signup Successfully")
-    navigate("/signin");
   }
   return (
     <>
@@ -37,31 +41,51 @@ const signup = () => {
               <h1 className="text-black text-4xl font-bold font-sans" >Registration</h1>
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg ' >
                 <input
-                  {...register("firstName")}
+                  {...register("firstName", { required: "First name is required" })}
                   className="outline-0"
                   type="text" placeholder='First Name' />
                 <h1 className="text-sm" ><i className="ri-user-fill"></i></h1>
               </div>
+              {errors.firstName && (
+                <span className="text-red-500 text-sm " >{errors.firstName.message}</span>
+              )}
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg ' >
                 <input
-                  {...register("lastName")}
+                  {...register("lastName", { required: "last name is requird" })}
                   className="outline-0"
                   type="text" placeholder='last Name' />
                 <h1 className="text-sm" ><i className="ri-user-fill"></i></h1>
               </div>
+              {errors.lastName && (
+                <span className="text-red-500 text-sm">{errors.lastName.message}</span>
+              )}
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
                 <input
-                  {...register("email")}
+                  {...register("email", { required: "email is required" })}
                   className="outline-0"
                   type="email" placeholder='email' />
                 <h1 className="text-sm" ><i className="ri-mail-fill"></i></h1>
               </div>
+              {errors.email && (
+                <span className="text-red-500 text-sm" >{errors.email.message}</span>
+              )}
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
                 <input
-                  {...register("password")}
+                  {...register("password", { required: "password is required" })}
                   className="outline-0"
                   type="pasword" placeholder='******' />
                 <h1 className="text-sm" ><i className="ri-git-repository-private-fill"></i></h1>
+              </div>
+              {errors.password && (
+                <span className="text-red-500 text-sm" >{errors.password.message}</span>
+              )}
+              <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg ' >
+                <select
+                  {...register("role")}
+                  className="w-full items-center outline-0" >
+                  <option value="user">user</option>
+                  <option value="seller">seller</option>
+                </select>
               </div>
               <button
                 className='w-70 bg-black text-white rounded-sm text-xl px-4 py-2 mt-4 hover:bg-gray-800'

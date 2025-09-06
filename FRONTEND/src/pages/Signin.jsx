@@ -7,12 +7,16 @@ import { toast } from "react-toastify";
 const signin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
 
   const signinhandler = (user) => {
-    dispatch(asyncsigninuser(user));
-    toast.success("Signin Successfully")
-    navigate("/");
+    try {
+      dispatch(asyncsigninuser(user));
+      toast.success("Signin Successfully")
+      navigate("/");
+    } catch (error) {
+      console.log("login form error", error)
+    }
   }
   return (
     <>
@@ -33,18 +37,24 @@ const signin = () => {
               <h1 className="text-black text-4xl font-bold" >Login</h1>
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
                 <input
-                  {...register("email")}
+                  {...register("email",{required:"email is required"})}
                   className="outline-0"
                   type="email" placeholder='email' />
                 <h1 className="text-sm" ><i className="ri-mail-fill"></i></h1>
               </div>
+              {errors.email && (
+                <span className="text-red-500" >{errors.email.message}</span>
+              )}
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
                 <input
-                  {...register("password")}
+                  {...register("password",{required:"password is required"})}
                   className="outline-0"
                   type="pasword" placeholder='******' />
                 <h1 className="text-sm" ><i className="ri-git-repository-private-fill"></i></h1>
               </div>
+              {errors.password  && (
+                <span className="text-red-500" >{errors.password.message}</span>
+              )}
               <button
                 className='w-70 bg-black text-white rounded-sm text-xl px-4 py-2 mt-4 hover:bg-gray-800'
               >Login</button>

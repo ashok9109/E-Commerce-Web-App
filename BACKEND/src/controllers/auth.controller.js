@@ -6,40 +6,42 @@ const jwt = require("jsonwebtoken");
 
 async function registerUser(req, res) {
     try {
-        const { fullName: { firstName, lastName }, email, password, } = req.body;
-    
-        const userAlreadyExists = await userModel.findOne({email})
-    
+        const { fullName: { firstName, lastName }, email, password, role } = req.body;
+
+        const userAlreadyExists = await userModel.findOne({ email })
+
         if (userAlreadyExists) {
             return res.status(422).json({
                 message: "email is already exist"
             })
         }
-    
+
         const hash = await bcrypt.hash(password, 10)
-    
+
         const user = await userModel.create({
             email,
             fullName: {
                 firstName,
                 lastName
             },
-            password: hash
+            password: hash,
+            role
         });
-    
+
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-    
+
         res.cookie("token", token);
-    
+
         res.status(201).json({
             message: "user registed successfully",
             user: {
                 id: user.id,
                 email: user.email,
-                fullName: user.fullName
+                fullName: user.fullName,
+                role:user.role
             }
         })
-        
+
     } catch (error) {
         console.log(error)
     }
@@ -52,9 +54,7 @@ async function loginUser(req, res) {
     try {
         const { email, password } = req.body;
 
-        console.log("backend dta recive ", email, password)
-
-        const user = await userModel.findOne({email});
+        const user = await userModel.findOne({ email });
 
         if (!user) {
             return res.status(400).json9({
@@ -79,7 +79,8 @@ async function loginUser(req, res) {
             user: {
                 id: user.id,
                 email: user.email,
-                fullName: user.fullName
+                fullName: user.fullName,
+                role:user.role
             }
         })
 

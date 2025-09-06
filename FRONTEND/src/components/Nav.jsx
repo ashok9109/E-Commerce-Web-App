@@ -20,7 +20,7 @@ const Nav = () => {
                     </div>
                 </div>
                 <div className="flex gap-15">
-                 <NavLink
+                    <NavLink
                         className={({ isActive }) => (isActive ? "text-white bg-orange-600 px-3 py-1 rounded-lg" : "")}
                         to='/'>Home</NavLink>
                     <NavLink
@@ -35,7 +35,12 @@ const Nav = () => {
                                 className={({ isActive }) => (isActive ? "text-white bg-orange-600 px-3 py-1 rounded-lg" : "")}
                                 to='/cart'>cart</NavLink>
                             <NavLink />
-                            {user?.isAdmin && (
+                            {user?.role == "admin" && (
+                                <NavLink
+                                    className={({ isActive }) => (isActive ? "text-white bg-blue-600 px-3 py-1 rounded-lg" : "")}
+                                    to='/create-product'>Create Product</NavLink>
+                            )}
+                            {user?.role == "seller" && (
                                 <NavLink
                                     className={({ isActive }) => (isActive ? "text-white bg-blue-600 px-3 py-1 rounded-lg" : "")}
                                     to='/create-product'>Create Product</NavLink>
