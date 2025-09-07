@@ -5,13 +5,14 @@ import { setError } from "../store/reducers/errorSlice";
 
 const instance = axios.create({
     baseURL: "http://localhost:3000/",
-    withCredentials: true
+    // withCredentials: true
 });
 
 instance.interceptors.response.use(
     (reponse) => reponse,
     (error) => {
         let errorMsg = error.reponse?.data?.message;
+        console.log(errorMsg)
         store.dispatch(setError(errorMsg));
         return Promise.reject(error)
     }

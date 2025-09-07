@@ -31,7 +31,7 @@ export const asyncsignupuser = (user) => async (dispatch, getState) => {
         await axios.post("/api/auth/user/register", user);
         console.log("User Registered")
     } catch (error) {
-        console.log(error);
+        console.log(error.response.data);
     }
 };
 

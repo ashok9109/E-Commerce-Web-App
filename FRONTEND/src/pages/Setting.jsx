@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { asyncdeleteuser, asynclogoutuser, asyncupdateuser } from '../store/actions/userActions';
 import { useNavigate } from 'react-router';
-import images from '../images/setting.png'
 
 const Setting = () => {
   const { user } = useSelector((state) => state.userReducer)
@@ -76,7 +75,7 @@ const Setting = () => {
             </form>
           </div>
           <div className=' ' >
-            <img className='h-140 w-150  ' src={images} alt="" />
+            {/* <img className='h-140 w-150  ' src={images} alt="" /> */}
           </div>
         </div>
       </div>

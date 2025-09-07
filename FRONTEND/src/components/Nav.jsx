@@ -37,17 +37,17 @@ const Nav = () => {
                             <NavLink />
                             {user?.role == "admin" && (
                                 <NavLink
-                                    className={({ isActive }) => (isActive ? "text-white bg-blue-600 px-3 py-1 rounded-lg" : "")}
+                                    className={({ isActive }) => (isActive ? "text-white bg-red-600 px-3 py-1 rounded-lg" : "")}
                                     to='/create-product'>Create Product</NavLink>
                             )}
                             {user?.role == "seller" && (
                                 <NavLink
-                                    className={({ isActive }) => (isActive ? "text-white bg-blue-600 px-3 py-1 rounded-lg" : "")}
+                                    className={({ isActive }) => (isActive ? "text-white bg-red-600 px-3 py-1 rounded-lg" : "")}
                                     to='/create-product'>Create Product</NavLink>
                             )}
                             <NavLink
                                 className={({ isActive }) => (isActive ? "text-white bg-teal-400 px-3 py-1 rounded-lg" : "")}
-                                to='/setting'>User Setting</NavLink>
+                                to='/setting'>Settings</NavLink>
                         </>
                     ) : (
                         <>

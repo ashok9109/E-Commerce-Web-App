@@ -6,7 +6,7 @@ const Home = () => {
        <div className='h-full w-full  relative' >
        <div className='h-full w-full  relative ' >
           <video  className='h-full w-full  rounded-lg '  autoPlay loop muted  >
-            <source src={Homevideo} />
+            <source src={Homevideo}  />
           </video>
        </div>
           </div>
