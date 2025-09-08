@@ -8,7 +8,7 @@ const Setting = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       username: user?.username,
       email: user?.email,
@@ -31,52 +31,50 @@ const Setting = () => {
 
   return (
     <>
-      <div className="h-full flex items-center justify-center  pt-20">
-        <div className='h-140 w-320 flex items-center justify-center bg-black shadow-lg shadow-black ' >
-          <div className='h-130 w-145 ' >
-            <h1 className='ml-10 text-teal-400 text-2xl font-bold underline' >Settings</h1>
-            <form
-              onSubmit={handleSubmit(UpdateHandler)}
-              className='h-full w-full flex flex-col p-5 ' >
-              <div className='w-40 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg ' >
-                <input
-                  {...register("username")}
-                  className="outline-0 w-31"
-                  type="text" placeholder='ashok.yadav' />
-                <h1 className="text-sm" ><i className="ri-user-fill"></i></h1>
-              </div>
-              <div className='w-80 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
-                <input
-                  {...register("email")}
-                  className="outline-0 w-90"
-                  type="email" placeholder='ashokyadavrtp200@gmail.com' />
-                <h1 className="text-sm" ><i className="ri-mail-fill"></i></h1>
-              </div>
-              <div className='w-30 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
-                <input
-                  {...register("password")}
-                  className="outline-0 w-20"
-                  type="pasword" placeholder='*******' />
-                <h1 className="text-sm" ><i className="ri-git-repository-private-fill"></i></h1>
-              </div>
+      <div className="h-screen w-screen flex items-center justify-center  pt-20" id='settings' >
+        <div className='h-130 w-140 flex flex-col items-center justify-center border-4 rounded-sm p-10 ' >
+          <h1 className='ml-10 text-teal-400 text-3xl font-bold underline' >Settings</h1>
+          <form
+            onSubmit={handleSubmit(UpdateHandler)}
+            className='h-full w-full flex flex-col p-5 ' >
+            <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
+              <input
+                {...register("email", { required: "email is required" })}
+                className="outline-0"
+                type="email" placeholder='email' />
+              <h1 className="text-sm" ><i className="ri-mail-fill"></i></h1>
+            </div>
+            {errors.email && (
+              <span className="text-red-500" >{errors.email.message}</span>
+            )}
+            <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
+              <input
+                {...register("password", { required: "password is required" })}
+                className="outline-0"
+                type="pasword" placeholder='******' />
+              <h1 className="text-sm" ><i className="ri-git-repository-private-fill"></i></h1>
+            </div>
+            {errors.password && (
+              <span className="text-red-500" >{errors.password.message}</span>
+            )}
+            <div className='flex items-center justify-center gap-10 mt-10 '>
               <button
-                className='text-2xl px-6 py-4 text-white bg-yellow-500 mb-4'
+                className='text-2xl px-6 py-4 text-white bg-black mb-4 rounded-sm'
               >Update User</button>
               <button
                 onClick={DeleteHandler}
                 type='button'
-                className='text-2xl px-6 py-4 text-white bg-teal-600 mb-4'
+                className='text-2xl px-6 py-4 text-white bg-[#032A6A] mb-4 rounded-sm '
               >Delete User</button>
-              <button
-                onClick={LogoutHandler}
-                type='button'
-                className='text-2xl px-6 py-4 text-white bg-red-600 mb-4'
-              >Logout User</button>
-            </form>
-          </div>
-          <div className=' ' >
-            {/* <img className='h-140 w-150  ' src={images} alt="" /> */}
-          </div>
+
+            </div>
+            <button
+              onClick={LogoutHandler}
+              type='button'
+              className='text-2xl px-6 py-4 text-white bg-teal-400 mt-10 '
+            >Logout User</button>
+          </form>
+
         </div>
       </div>
     </>

@@ -37,7 +37,7 @@ const signin = () => {
               <h1 className="text-black text-4xl font-bold" >Login</h1>
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
                 <input
-                  {...register("email",{required:"email is required"})}
+                  {...register("email", { required: "email is required" })}
                   className="outline-0"
                   type="email" placeholder='email' />
                 <h1 className="text-sm" ><i className="ri-mail-fill"></i></h1>
@@ -47,12 +47,12 @@ const signin = () => {
               )}
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
                 <input
-                  {...register("password",{required:"password is required"})}
+                  {...register("password", { required: "password is required" })}
                   className="outline-0"
                   type="pasword" placeholder='******' />
                 <h1 className="text-sm" ><i className="ri-git-repository-private-fill"></i></h1>
               </div>
-              {errors.password  && (
+              {errors.password && (
                 <span className="text-red-500" >{errors.password.message}</span>
               )}
               <button
