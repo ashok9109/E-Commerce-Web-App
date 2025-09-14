@@ -6,16 +6,16 @@ import { removeError } from '../store/reducers/errorSlice'
 
 const ErrorHandler = () => {
 
-    const { message } = useSelector((state) => state.error)
+     const { message } = useSelector((state) => state.error);
     const dispatch = useDispatch()
 
-    useEffect(()=>{
-        if(message){
+    useEffect(() => {
+        if (message) {
             toast.error(message);
             dispatch(removeError())
 
         }
-    },[message, dispatch])
+    }, [message,dispatch])
 
     return null
 }

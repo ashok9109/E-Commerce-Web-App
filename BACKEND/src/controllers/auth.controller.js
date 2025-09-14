@@ -30,7 +30,11 @@ async function registerUser(req, res) {
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: "none"
+        });
 
         res.status(201).json({
             message: "user registed successfully",
@@ -38,7 +42,7 @@ async function registerUser(req, res) {
                 id: user.id,
                 email: user.email,
                 fullName: user.fullName,
-                role:user.role
+                role: user.role
             }
         })
 
@@ -48,11 +52,11 @@ async function registerUser(req, res) {
 
 }
 
-// login controller
+// signin controller
 
-async function loginUser(req, res) {
+async function signinUser(req, res) {
     try {
-        const { email, password } = req.body;
+        const { email, password, role } = req.body;
 
         const user = await userModel.findOne({ email });
 
@@ -70,24 +74,68 @@ async function loginUser(req, res) {
             })
         }
 
-        const token = await jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        if (role !== user.role) {
+            return res.status(400).json({
+                message: "Role is Incorrect"
+            })
+        }
 
-        res.cookie("token", token)
+        const token = await jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+
+        res.cookie("token", token, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: false
+        })
 
         res.status(200).json({
-            message: " user loged successfully",
+            message: " user logged successfully",
             user: {
                 id: user.id,
                 email: user.email,
                 fullName: user.fullName,
-                role:user.role
+                role: user.role,
+
             }
         })
 
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 
-}
+};
 
-module.exports = { registerUser, loginUser };
+
+// logout user controller
+
+async function logoutUser(req, res) {
+
+    try {
+        const token = req?.cookies?.token;
+
+        // console.log("token ----", token)
+
+        if (!token) {
+            return res.status(404).json({
+                message: "token not found"
+            })
+        }
+
+
+        res.clearCookie("token");
+
+        return res.status(200).json({
+            message: "user is logout"
+        })
+
+    } catch (error) {
+        console("error in logout ", error);
+        return res.status(400).json({
+            message: "error in logout"
+        })
+    }
+};
+
+
+
+module.exports = { registerUser, signinUser, logoutUser };

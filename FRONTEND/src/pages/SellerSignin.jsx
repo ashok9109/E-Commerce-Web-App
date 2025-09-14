@@ -1,26 +1,22 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router';
-import { signinUser } from "../apis/UserApis";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { loginuser } from "../store/reducers/userSlice";
+import { Link, useNavigate } from 'react-router';
+// import { asyncsigninuser } from "../store/actions/userActions";
+// // import { toast } from "react-toastify";
 
-const signin = () => {
-  const dispatch = useDispatch()
+const SellerSignin = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { register, handleSubmit, reset, formState: { errors } } = useForm()
 
-  const signinhandler = async (user) => {
+  const signinhandler = (user) => {
     try {
-      const loggedInUser = await signinUser(user);
-      if (loggedInUser) {
-        dispatch(loginuser(loggedInUser))
-        toast.success("Signin Successfully")
-        navigate("/");
-      }
+      //   dispatch(asyncsigninuser(user));
+      // toast.success("Signin Successfully")
+      navigate("/");
       reset()
     } catch (error) {
-      console.log("login form error", error)
+      console.log("seller login form error", error);
     }
   }
   return (
@@ -33,7 +29,7 @@ const signin = () => {
             <p className="opacity-70 text-white ">Don,t have an account ?</p>
             <Link
               className='text-white border-2 px-10 py-2 text-sm rounded-lg mt-3 hover:bg-gray-800'
-              to='/signup' >Register</Link>
+              to='/seller-signup' >Register</Link>
           </div>
           <div className='h-150 w-115 flex items-center justify-center bg-white ' >
             <form
@@ -62,10 +58,8 @@ const signin = () => {
               )}
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg ' >
                 <select
-                  {...register("role")}
                   className="w-full items-center outline-0" >
-                  <option type="user" value="user">user</option>
-                  <option type="admin" value="admin">admin</option>
+                  <option value="user">seller</option>
                 </select>
               </div>
               <button
@@ -88,4 +82,4 @@ const signin = () => {
   )
 }
 
-export default signin;
+export default SellerSignin;

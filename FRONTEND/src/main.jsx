@@ -5,23 +5,14 @@ import { BrowserRouter } from 'react-router'
 import { Provider } from 'react-redux'
 import { store } from './store/store.jsx'
 import { ToastContainer } from 'react-toastify';
+import ErrorHandler from './components/ErrorHandler.jsx'
 
 createRoot(document.getElementById('root')).render(
    <Provider store={store}>
       <BrowserRouter>
          <App />
-         <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-         />
+         <ToastContainer/>
+         <ErrorHandler/>
       </BrowserRouter>
    </Provider>
 )

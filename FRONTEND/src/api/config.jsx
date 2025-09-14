@@ -1,21 +1,30 @@
 import axios from "axios";
 import { store } from "../store/store";
 import { setError } from "../store/reducers/errorSlice";
+// import { toast } from "react-toastify";
 
 
-const instance = axios.create({
+
+const axiosInstance = axios.create({
     baseURL: "http://localhost:3000/",
-    // withCredentials: true
+    withCredentials: true,
 });
 
-instance.interceptors.response.use(
-    (reponse) => reponse,
+
+axiosInstance.interceptors.response.use(
+    (response)=>response,
+    // (reponse) => {
+    //     let res = reponse.data?.message;
+    //     if(res){
+    //         toast.success(response.data.message)
+    //     }
+    // }
+
     (error) => {
-        let errorMsg = error.reponse?.data?.message;
-        console.log(errorMsg)
+        let errorMsg = error.response?.data?.message;
         store.dispatch(setError(errorMsg));
         return Promise.reject(error)
     }
 )
 
-export default instance;
+export default axiosInstance;

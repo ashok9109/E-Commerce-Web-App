@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from 'react-router';
+// import { asyncsignupuser } from "../store/actions/userActions";
 import { nanoid } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { signinUser } from "../apis/UserApis";
 
-const signup = () => {
-  const navigate = useNavigate();
+const SellerSignup = () => {
+  const dispatch = useDispatch();
+  //   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
   const signuphandler = (user) => {
@@ -20,13 +22,13 @@ const signup = () => {
         role: user.role,
         id: nanoid()
       }
-      signinUser(newUserObj)
-      toast.success("Signup Successfully");
-      navigate("/signin");
+      //   dispatch(asyncsignupuser(newUserObj));
+      toast.success("Seller Signup Successfully");
+      navigate("/seller-signin");
       reset();
 
     } catch (error) {
-      console.log("Register form error", error);
+      console.log("Seller Register form error", error);
     }
   }
   return (
@@ -82,7 +84,7 @@ const signup = () => {
                 <select
                   {...register("role")}
                   className="w-full items-center outline-0" >
-                  <option value="user">user</option>
+                  <option value="user">seller</option>
                 </select>
               </div>
               <button
@@ -104,7 +106,7 @@ const signup = () => {
             <p className="opacity-70 text-white ">Already have an account ?</p>
             <Link
               className='text-white border-2 px-10 py-2 text-sm rounded-lg mt-3 hover:bg-gray-800'
-              to='/signin' >Login</Link>
+              to='/seller-signin' >Login</Link>
           </div>
           <div className="h-150 w-140 bg-black absolute right-[-140px] rounded-[150px]"></div>
         </div>
@@ -113,5 +115,5 @@ const signup = () => {
   )
 }
 
-export default signup;
+export default SellerSignup;
 

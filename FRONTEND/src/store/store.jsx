@@ -4,7 +4,7 @@ import productSlice from "./reducers/productSlice";
 import errorSlice from "./reducers/errorSlice";
 
 export const store = configureStore({
-    reducer:{
+    reducer: {
         error: errorSlice,
         userReducer: userSlice,
         productReducer: productSlice,

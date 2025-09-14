@@ -1,17 +1,28 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Nav from "./components/Nav";
 import Mainroutes from "./routes/Mainroutes";
 import { useEffect } from "react";
-import { asynccurrentuser } from "./store/actions/userActions";
+import axiosInstance from "./api/config";
+import { loginuser } from "./store/reducers/userSlice";
+
 
 const App = () => {
-  
-  const {user} = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
+
   useEffect(()=>{
-    !user && dispatch(asynccurrentuser());
-  }, [user]);
+    (async ()=>{
+      try {
+        let res = await axiosInstance.get("/api/auth/me");
+        console.log("app.jsx user--", res.data.user)
+        if(res){
+          dispatch(loginuser(res?.data?.user));
+        }
+      } catch (error) {
+        console.log("error in /me" ,error);
+      }
+    })()
+  },[])
 
   return (
     <>

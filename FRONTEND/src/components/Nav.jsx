@@ -53,10 +53,10 @@ const Nav = () => {
                         <>
                             <NavLink
                                 className={({ isActive }) => (isActive ? "text-black bg-white px-3 py-1 rounded-lg" : "")}
-                                to='/signin'>Signin</NavLink>
+                                to='/signin'>Login</NavLink>
                             <NavLink
                                 className={({ isActive }) => (isActive ? "text-black bg-white px-3 py-1 rounded-lg " : "")}
-                                to='/signup'>Signup</NavLink>
+                                to='/seller-signup'>Become a Seller</NavLink>
                         </>
                     )}
                 </div>

@@ -1,7 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { asyncdeleteuser, asynclogoutuser, asyncupdateuser } from '../store/actions/userActions';
+import { asyncdeleteuser, asyncupdateuser } from '../store/actions/userActions';
 import { useNavigate } from 'react-router';
+import { logoutuser } from '../store/reducers/userSlice';
+import { logoutUser } from '../apis/UserApis';
 
 const Setting = () => {
   const { user } = useSelector((state) => state.userReducer)
@@ -20,8 +22,9 @@ const Setting = () => {
     dispatch(asyncupdateuser(user?.id, updatehandler));
   };
 
-  const LogoutHandler = (user) => {
-    dispatch(asynclogoutuser());
+  const LogoutHandler = async () => {
+    await logoutUser();
+    dispatch(logoutuser());
     navigate("/signin");
   }
 
