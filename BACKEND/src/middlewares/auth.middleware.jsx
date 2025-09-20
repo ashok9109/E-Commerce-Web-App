@@ -6,8 +6,6 @@ const userModel = require("../models/user.model");
 const authuser = async (req, res, next) => {
     let token = req.cookies.token;
 
-    console.log("middleware token---", token)
-
     try {
         if (!token) {
             return res.status(401).json({

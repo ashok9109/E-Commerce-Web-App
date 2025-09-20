@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-
+const sellerSchema = new mongoose.Schema({
     fullName: {
         firstName: {
             type: String,
@@ -12,26 +11,23 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     },
-
     email: {
         type: String,
         required: true,
         unique: true
     },
-
     password: {
         type: String,
         required: true
     },
-
     role: {
         type: String,
         required: true,
-        enum: ["admin", "user", "seller"],
+        enum: ["user", "seller", "admin"],
         default: "user"
     }
-})
+});
 
-const userModel = mongoose.model("user", userSchema);
+const sellerModel = mongoose.model("seller", sellerSchema);
 
-module.exports = userModel;
+module.exports = sellerModel

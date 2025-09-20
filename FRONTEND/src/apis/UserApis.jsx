@@ -1,15 +1,14 @@
-
-import axios from "axios";
 import axiosInstance from "../api/config";
-import { loginuser } from "../store/reducers/userSlice";
 
 // signup user api
 
 export const signupUser = async (user) => {
     try {
-        console.log("api signup data----", user)
-        await axios.post("/api/auth/user/register", user);
-        console.log("User Registered")
+        const res = await axiosInstance.post("/api/auth/user/signup", user);
+        if (res) {
+            console.log("User Rigestered ")
+            return res.data.user;
+        }
     } catch (error) {
         console.log(error);
     }
@@ -19,14 +18,13 @@ export const signupUser = async (user) => {
 
 export const signinUser = async (user) => {
     try {
-        const loggedInUser = await axiosInstance.post("/api/auth/user/login", user)
-
+        const loggedInUser = await axiosInstance.post("/api/auth/user/login", user);
         if (loggedInUser) {
             console.log("User login")
             return loggedInUser.data.user;
         }
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 };
 

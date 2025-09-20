@@ -2,9 +2,9 @@ const userModel = require("../models/user.model");
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken");
 
-// register controller
+//user register controller
 
-async function registerUser(req, res) {
+async function signupUser(req, res) {
     try {
         const { fullName: { firstName, lastName }, email, password, role } = req.body;
 
@@ -12,7 +12,7 @@ async function registerUser(req, res) {
 
         if (userAlreadyExists) {
             return res.status(422).json({
-                message: "email is already exist"
+                message: "Email is already exist"
             })
         }
 
@@ -52,7 +52,7 @@ async function registerUser(req, res) {
 
 }
 
-// signin controller
+//user signin controller
 
 async function signinUser(req, res) {
     try {
@@ -106,7 +106,7 @@ async function signinUser(req, res) {
 };
 
 
-// logout user controller
+// logout controller
 
 async function logoutUser(req, res) {
 
@@ -138,4 +138,4 @@ async function logoutUser(req, res) {
 
 
 
-module.exports = { registerUser, signinUser, logoutUser };
+module.exports = { signupUser, signinUser, logoutUser };

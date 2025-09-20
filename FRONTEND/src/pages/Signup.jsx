@@ -2,13 +2,14 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router';
 import { nanoid } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { signinUser } from "../apis/UserApis";
+import { signupUser } from "../apis/UserApis";
+
 
 const signup = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
-  const signuphandler = (user) => {
+  const signuphandler = async (user) => {
     try {
       let newUserObj = {
         fullName: {
@@ -20,11 +21,12 @@ const signup = () => {
         role: user.role,
         id: nanoid()
       }
-      signinUser(newUserObj)
-      toast.success("Signup Successfully");
-      navigate("/signin");
-      reset();
-
+      const res = await signupUser(newUserObj)
+      if (res) {
+        toast.success("Signup Successfully");
+        navigate("/signin");
+        reset();
+      }
     } catch (error) {
       console.log("Register form error", error);
     }
@@ -37,7 +39,7 @@ const signup = () => {
             <form
               onSubmit={handleSubmit(signuphandler)}
               className='h-full w-115 flex items-center justify-center  flex-col ' >
-              <h1 className="text-black text-4xl font-bold font-sans" >Registration</h1>
+              <h1 className="text-black text-4xl font-bold font-sans" >Registration User</h1>
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg ' >
                 <input
                   {...register("firstName", { required: "First name is required" })}

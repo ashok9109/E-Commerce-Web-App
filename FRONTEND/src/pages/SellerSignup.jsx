@@ -1,31 +1,29 @@
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from 'react-router';
-// import { asyncsignupuser } from "../store/actions/userActions";
-import { nanoid } from "@reduxjs/toolkit";
+import { sellerSignup } from "../apis/SellerApis";
 import { toast } from "react-toastify";
 
 const SellerSignup = () => {
-  const dispatch = useDispatch();
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
-  const signuphandler = (user) => {
+  const signuphandler = async (seller) => {
     try {
-      let newUserObj = {
+      let newSellerObj = {
         fullName: {
-          firstName: user.firstName,
-          lastName: user.lastName
+          firstName: seller.firstName,
+          lastName: seller.lastName
         },
-        email: user.email,
-        password: user.password,
-        role: user.role,
-        id: nanoid()
+        email: seller.email,
+        password: seller.password,
+        role: seller.role,
       }
-      //   dispatch(asyncsignupuser(newUserObj));
-      toast.success("Seller Signup Successfully");
-      navigate("/seller-signin");
-      reset();
+      const res = await sellerSignup(newSellerObj)
+      if (res) {
+        toast.success("Seller Signup Successfully");
+        navigate("/seller-signin");
+        reset();
+      }
 
     } catch (error) {
       console.log("Seller Register form error", error);
@@ -39,7 +37,7 @@ const SellerSignup = () => {
             <form
               onSubmit={handleSubmit(signuphandler)}
               className='h-full w-115 flex items-center justify-center  flex-col ' >
-              <h1 className="text-black text-4xl font-bold font-sans" >Registration</h1>
+              <h1 className="text-black text-4xl font-bold font-sans" >Registration Seller </h1>
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg ' >
                 <input
                   {...register("firstName", { required: "First name is required" })}
@@ -84,7 +82,7 @@ const SellerSignup = () => {
                 <select
                   {...register("role")}
                   className="w-full items-center outline-0" >
-                  <option value="user">seller</option>
+                  <option type="seller" value="seller">seller</option>
                 </select>
               </div>
               <button
