@@ -13,7 +13,7 @@ const userSlice = createSlice({
 
         },
 
-        logoutuser: (state, action) => {
+        logoutuser: (state,) => {
             state.user = null;
         }
     }

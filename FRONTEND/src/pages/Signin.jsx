@@ -39,7 +39,7 @@ const signin = () => {
             <form
               onSubmit={handleSubmit(signinhandler)}
               className=' h-full w-full flex items-center justify-center  flex-col rounded-lg' >
-              <h1 className="text-black text-4xl font-bold" >Login User</h1>
+              <h1 className="text-black text-4xl font-bold" >Login </h1>
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
                 <input
                   {...register("email", { required: "email is required" })}
@@ -65,6 +65,7 @@ const signin = () => {
                   {...register("role")}
                   className="w-full items-center outline-0" >
                   <option type="user" value="user">user</option>
+                  <option type="seller" value="seller">seller</option>
                   <option type="admin" value="admin">admin</option>
                 </select>
               </div>

@@ -39,7 +39,7 @@ const signup = () => {
             <form
               onSubmit={handleSubmit(signuphandler)}
               className='h-full w-115 flex items-center justify-center  flex-col ' >
-              <h1 className="text-black text-4xl font-bold font-sans" >Registration User</h1>
+              <h1 className="text-black text-4xl font-bold font-sans" >Registration</h1>
               <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg ' >
                 <input
                   {...register("firstName", { required: "First name is required" })}
@@ -85,6 +85,8 @@ const signup = () => {
                   {...register("role")}
                   className="w-full items-center outline-0" >
                   <option value="user">user</option>
+                  <option value="seller">seller</option>
+                  <option value="admin">admin</option>
                 </select>
               </div>
               <button
