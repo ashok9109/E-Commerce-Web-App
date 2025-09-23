@@ -11,6 +11,7 @@ const productSlice = createSlice({
     reducers: {
         loadproduct: (state, action) => {
             state.products = action.payload;
+            console.log("proudusts slice data--", state.products)
         },
         lazyloadproduct: (state, action) => {
             state.products = [...state.products, ...action.payload]

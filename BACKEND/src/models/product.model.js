@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const productSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -18,7 +17,7 @@ const productSchema = new mongoose.Schema({
         currency:{
             type:String,
             required:true,
-            eunm:["INR","USD"]
+            enum:["INR","USD"]
         }
     },
     image:{

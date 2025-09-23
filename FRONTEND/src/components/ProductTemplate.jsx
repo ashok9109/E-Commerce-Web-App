@@ -29,7 +29,8 @@ const ProductTemplate = ({ p }) => {
         <h1 className='text-xl mt-4 mb-3 underline' >{p.title.slice(0, 18)}</h1>
         <div className='flex items-center justify-evenly mb-5 '>
           <h1>_{p.brand}_</h1>
-          <h1><span className='text-red-600' >price</span>:- {p.price}</h1>
+          <h1><span className='text-red-600' >price</span>:- {p.price.currency}</h1>
+          <h1><span className='text-red-600' >price</span>:- {p.price.amount}</h1>
         </div>
         <p>{p.description.slice(0, 90)}....</p>
         <div className='flex justify-between mt-3' >
