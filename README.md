@@ -1,35 +1,69 @@
-🛒 E-Commerce Web Application
+# 🛒 Full Stack E-Commerce Web Application (MERN)
 
-A full-stack E-Commerce web application built to provide users with a seamless online shopping experience. The platform allows users to browse products, view details, add items to cart, and manage their purchases with a clean and responsive interface.
+A modern full-stack E-Commerce web application currently under development.
+This project is being built using the MERN stack to provide a complete online shopping platform with secure authentication, product management, and a responsive user interface.
 
-🚀 Features
+---
 
-🏬 Browse products with detailed information
+## 🚧 Project Status
 
-🔎 Product listing and search functionality
+⚡ **Currently in development**
+New features are actively being added and improved.
 
-🛒 Add to cart and remove from cart
+---
 
-💳 Checkout flow (basic implementation)
+## 🚀 Planned Features
 
-👤 User-friendly responsive UI
+* 🔐 User Authentication (Signup / Login / JWT)
+* 🏬 Product listing with categories
+* 🔎 Search and filter products
+* 🛒 Add to cart & cart management
+* 💳 Checkout workflow
+* 📦 Order management
+* 👨‍💼 Admin dashboard for product control
+* 📱 Fully responsive design
 
-📱 Mobile-friendly design
+---
 
-## 🛠️ Tech Stack:-
+## 🛠️ Tech Stack
 
-**Frontend:** React.js, Tailwind CSS  
-**Backend:** Node.js, Express.js  
-**Database:** MongoDB  
-**Authentication:** JWT  
-**File Handling:** Excel processing, image generation
+### Frontend
+
+* React.js
+* Tailwind CSS
+* Axios
+* React Router
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT Authentication
+
+---
+
+## 📂 Project Structure
+
+```
+client/        → React Frontend
+server/        → Node/Express Backend
+```
 
 
-🎯 Purpose of the Project
 
-This project was created to practice building an online shopping platform and to strengthen skills in frontend development, API integration, and UI design.
+## 🎯 Learning Purpose
 
-👨‍💻 Author
+This project is being developed to strengthen full-stack development skills, API design, authentication systems, and scalable application architecture using the MERN stack.
 
-Ashok Yadav
+---
+
+## 👨‍💻 Author
+
+**Ashok Yadav**
 MERN Stack Developer
+
+---
+
+⭐ Stay tuned for upcoming updates as the project progresses!
