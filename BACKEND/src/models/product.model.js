@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema({
             required:true
         },
         currency:{
-            type:String,
+            type:String,    
             required:true,
             enum:["INR","USD"]
         }

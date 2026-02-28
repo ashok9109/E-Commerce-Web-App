@@ -9,7 +9,6 @@ import { loginuser } from "./store/reducers/userSlice";
 const App = () => {
   const dispatch = useDispatch();
 
-
   useEffect(()=>{
     (async ()=>{
       try {
@@ -26,7 +25,7 @@ const App = () => {
 
   return (
     <>
-      <div>
+      <div className="min-h-full w-full bg-gradient">
         <Nav />
         <Mainroutes />
       </div>

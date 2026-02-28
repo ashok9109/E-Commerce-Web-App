@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 async function signupUser(req, res) {
     try {
-        const { fullName: { firstName, lastName }, email, password, role } = req.body;
+        const { fullName: { firstName, lastName }, email, password } = req.body;
 
         const userAlreadyExists = await userModel.findOne({ email })
 
@@ -24,8 +24,7 @@ async function signupUser(req, res) {
                 firstName,
                 lastName
             },
-            password: hash,
-            role
+            password: hash
         });
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);

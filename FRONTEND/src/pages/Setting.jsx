@@ -34,52 +34,43 @@ const Setting = () => {
 
   return (
     <>
-      <div className="h-screen w-screen flex items-center justify-center  pt-20" id='settings' >
-        <div className='h-130 w-140 flex flex-col items-center justify-center border-4 rounded-sm p-10 ' >
+      <section className="h-screen w-screen flex items-center justify-center bg-gradient pt-20">
+        <div className='h-130 w-140 flex flex-col items-center justify-center border-4 rounded-sm p-10'>
+
+          {/* Heading */}
           <h1 className='ml-10 text-teal-400 text-3xl font-bold underline' >Settings</h1>
-          <form
-            onSubmit={handleSubmit(UpdateHandler)}
-            className='h-full w-full flex flex-col p-5 ' >
-            <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
-              <input
-                {...register("email", { required: "email is required" })}
+
+          {/* form and inputs */}
+          <form onSubmit={handleSubmit(UpdateHandler)} className='h-full w-full flex flex-col p-5'>
+
+            {/* email input */}
+            <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg'>
+              <input {...register("email", { required: "email is required" })}
                 className="outline-0"
                 type="email" placeholder='email' />
               <h1 className="text-sm" ><i className="ri-mail-fill"></i></h1>
             </div>
-            {errors.email && (
-              <span className="text-red-500" >{errors.email.message}</span>
-            )}
+            {errors.email && (<span className="text-red-500" >{errors.email.message}</span>)}
+
+            {/* password input */}
             <div className='w-70 flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg '>
-              <input
-                {...register("password", { required: "password is required" })}
+              <input {...register("password", { required: "password is required" })}
                 className="outline-0"
                 type="pasword" placeholder='******' />
               <h1 className="text-sm" ><i className="ri-git-repository-private-fill"></i></h1>
             </div>
-            {errors.password && (
-              <span className="text-red-500" >{errors.password.message}</span>
-            )}
-            <div className='flex items-center justify-center gap-10 mt-10 '>
-              <button
-                className='text-2xl px-6 py-4 text-white bg-black mb-4 rounded-sm'
-              >Update User</button>
-              <button
-                onClick={DeleteHandler}
-                type='button'
-                className='text-2xl px-6 py-4 text-white bg-[#032A6A] mb-4 rounded-sm '
-              >Delete User</button>
+            {errors.password && ( <span className="text-red-500" >{errors.password.message}</span> )}
 
+            {/* update, delete and logout button */}
+            <div className='flex items-center justify-center gap-10 mt-10 '>
+              <button  className='text-2xl px-6 py-4 text-white bg-black mb-4 rounded-sm' >Update User</button>
+              <button onClick={DeleteHandler}type='button' className='text-2xl px-6 py-4 text-white bg-[#032A6A] mb-4 rounded-sm ' >Delete User</button>
             </div>
-            <button
-              onClick={LogoutHandler}
-              type='button'
-              className='text-2xl px-6 py-4 text-white bg-teal-400 mt-10 '
-            >Logout User</button>
+            <button onClick={LogoutHandler} type='button' className='text-2xl px-6 py-4 text-white bg-teal-400 mt-10'>Logout User</button>
           </form>
 
         </div>
-      </div>
+      </section>
     </>
   )
 }

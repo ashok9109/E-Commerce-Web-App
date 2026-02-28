@@ -10,3 +10,12 @@
     background-size: cover;
 }
 
+.bg-gradient {
+  background: linear-gradient(
+    275deg,
+    rgba(13, 26, 41, 0.9),
+    rgba(23, 58, 83, 0.9),
+    rgba(35, 94, 124, 0.9)
+  );
+}
+

@@ -25,13 +25,14 @@ import axiosInstance from "../../api/config";
 //     }
 // };
     
-export const asynccreateproduct = (product) => async (dispatch, getState) =>{
-    console.log(product)
-    try {
-        await axios.post("/products", product);
-        dispatch(asyncloadproducts())
-        console.log("product is created!")
-    } catch (error) {
-        console.log(error)
-    }
-}
+// export const asynccreateproduct = (product) => async (dispatch, getState) =>{
+//     console.log(product)
+//     try {
+//         console.log("this store product", product)
+//         await axiosInstance.post("/products", product);
+//         // dispatch(asyncloadproducts())
+//         console.log("product is created!")
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
