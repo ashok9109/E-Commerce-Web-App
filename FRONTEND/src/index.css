@@ -19,3 +19,7 @@
   );
 }
 
+.bg-background {
+  background: linear-gradient(135deg, #0D1A29, #173A53, #09548a);
+}
+

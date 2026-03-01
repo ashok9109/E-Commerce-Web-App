@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <>
-      <div className="min-h-full w-full bg-gradient">
+      <div className="min-h-full w-full">
         <Nav />
         <Mainroutes />
       </div>

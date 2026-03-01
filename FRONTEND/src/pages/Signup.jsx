@@ -15,6 +15,7 @@ const signup = () => {
   const [loading, setLoading] = useState(false);
 
   const signuphandler = async (user) => {
+    setLoading(true);
     try {
       let newUserObj = {
         fullName: {
@@ -33,21 +34,24 @@ const signup = () => {
     } catch (error) {
       console.log("Register form error", error);
       setErrorServerMsg("Account is not created and try again❌")
-      console.log("this error server mesg", errorServerMsg)
+      reset()
+    }finally{
+      setLoading(false);
     }
+
   }
   return (
     <>
-      <section className='min-h-screen w-full flex items-center justify-center bg-gradient'>
-        <div className="w-full md:h-140 md:w-230 flex items-center justify-center rounded-lg relative overflow-hidden shadow-lg shadow-black" >
+      <section className='min-h-screen w-full flex items-center justify-center bg-background'>
+        <div className="w-full md:h-140 md:w-230 flex items-center justify-center rounded-lg relative overflow-hidden shadow-lg shadow-black">
           <div className="w-full md:h-140 flex items-center justify-center md:w-115 p-10 bg-gradient" >
 
             {/* form and input feilds */}
-            <form onSubmit={handleSubmit(signuphandler)} className='w-full md:w-115 flex items-center justify-center flex-col md:p-20' >
+            <form onSubmit={handleSubmit(signuphandler)} className='w-full md:w-115 flex items-center justify-center flex-col md:p-20'>
               <h1 className="text-white text-4xl font-bold font-sans" >Registration</h1>
 
               {/* First name input */}
-              <div className='w-full flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg' >
+              <div className='w-full flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg'>
                 <input {...register("firstName", { required: "First name is required" })}
                   className="outline-0"
                   type="text" placeholder='First Name' />
@@ -56,7 +60,7 @@ const signup = () => {
               {errors.firstName && (<span className="text-red-500 text-sm" >{errors.firstName.message}</span>)}
 
               {/* last name input */}
-              <div className='w-full flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg' >
+              <div className='w-full flex border-b bg-gray-200 text-xl p-2 mb-3 mt-4 rounded-lg'>
                 <input {...register("lastName", { required: "last name is requird" })}
                   className="outline-0"
                   type="text" placeholder='last Name' />
@@ -86,7 +90,7 @@ const signup = () => {
               {serverMsg && (<div>{serverMsg}</div>)}
               {errorServerMsg && (<div>{errorServerMsg}</div>)}
 
-              <button className='w-full bg-gradient text-white rounded-sm text-xl px-4 py-2 mt-4 hover:bg-gray-800' >signup</button>
+              <button disabled={loading} className='w-full bg-gradient text-white rounded-sm text-xl px-4 py-2 mt-4 hover:bg-gray-800' >{loading ? "...loading":"Sign-up"}</button>
             </form>
           </div>
 

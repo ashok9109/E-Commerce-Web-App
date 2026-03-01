@@ -34,8 +34,8 @@ const Setting = () => {
 
   return (
     <>
-      <section className="h-screen w-screen flex items-center justify-center bg-gradient pt-20">
-        <div className='h-130 w-140 flex flex-col items-center justify-center border-4 rounded-sm p-10'>
+      <section className="h-screen w-full flex items-center justify-center bg-background pt-20">
+        <div className='h-130 w-140 flex flex-col items-center justify-center p-10'>
 
           {/* Heading */}
           <h1 className='ml-10 text-teal-400 text-3xl font-bold underline' >Settings</h1>

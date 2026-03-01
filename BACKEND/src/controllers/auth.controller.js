@@ -2,11 +2,13 @@ const userModel = require("../models/user.model");
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken");
 
+// ================================
 //user register controller
+// ===============================
 
 async function signupUser(req, res) {
     try {
-        const { fullName: { firstName, lastName }, email, password } = req.body;
+        const { fullName, mobile, email, password } = req.body;
 
         const userAlreadyExists = await userModel.findOne({ email })
 
@@ -20,10 +22,8 @@ async function signupUser(req, res) {
 
         const user = await userModel.create({
             email,
-            fullName: {
-                firstName,
-                lastName
-            },
+            fullName,
+            mobile,
             password: hash
         });
 
@@ -46,16 +46,23 @@ async function signupUser(req, res) {
         })
 
     } catch (error) {
-        console.log(error)
+        console.log("error while create user", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            error: error
+        })
     }
 
 }
 
+// ==========================
 //user signin controller
+// ==========================
 
 async function signinUser(req, res) {
     try {
-        const { email, password, role } = req.body;
+        const { email, password} = req.body;
 
         const user = await userModel.findOne({ email });
 
@@ -70,12 +77,6 @@ async function signinUser(req, res) {
         if (!isPasswordValid) {
             return res.status(400).json({
                 message: "Invalid credentials"
-            })
-        }
-
-        if (role !== user.role) {
-            return res.status(400).json({
-                message: "Role is Incorrect"
             })
         }
 
@@ -99,13 +100,19 @@ async function signinUser(req, res) {
         })
 
     } catch (error) {
-        console.log(error);
+        console.log("error while login user", error);
+        return res.status(500).json({
+            success:false,
+            messsage:"Internal server error",
+            error:error
+        })
     }
 
 };
 
-
+// ======================
 // logout controller
+// =====================
 
 async function logoutUser(req, res) {
 

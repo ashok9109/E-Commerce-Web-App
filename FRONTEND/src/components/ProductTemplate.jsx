@@ -24,8 +24,8 @@ const ProductTemplate = ({ p }) => {
 
   return (
     <>
-      <section className='h-[67vh] w-[23%] shadow-lg shadow-black hover:scale-104 transition p-5 mr-5 mb-5 bg-[#13263A] rounded-lg text-white' key={p.id} >
-        <img className='h-[50%] block m-auto' src={p.image} alt="" />
+      <section className='w-full md:h-[67vh] md:w-[21%] shadow-lg shadow-black hover:scale-104 transition p-5 mr-5 mb-5 bg-[#13263A] rounded-lg text-[#F1E99D]' key={p.id} >
+        <img className='h-[50%] w-full' src={p.image} alt="" />
         <h1 className='text-xl mt-4 mb-3 underline' >{p.title.slice(0, 18)}</h1>
         <div className='flex items-center justify-evenly mb-5'>
           <h1>_{p.brand}_</h1>

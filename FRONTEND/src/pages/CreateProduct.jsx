@@ -31,13 +31,13 @@ const CreateProduct = () => {
 
   return (
     <>
-      <section className="min-h-screen w-full bg-white text-black" >
-        <div className="w-full flex flex-col items-center justify-center p-5  rounded-sm">
+      <section className="min-h-screen bg-background w-full text-[#F1E99D]">
+        <div className="w-full flex flex-col items-center justify-center p-5 rounded-sm">
             <h1 className="text-3xl font-bold text-gradient" >Create New Product</h1>
 
 
           {/* form and input fields */}
-          <form onSubmit={handleSubmit(CreateProductHandler)} className="w-full max-w-2xl flex flex-col items-center justify-center border-2 rounded-lg p-4">
+          <form onSubmit={handleSubmit(CreateProductHandler)} className="w-full max-w-2xl flex flex-col items-center justify-center border-2 text-[#F1E99D] rounded-lg p-4">
 
             {/* Title input */}
             <input {...register("title", { required: "Title is required" })}
@@ -83,7 +83,7 @@ const CreateProduct = () => {
             {errors.stock && (<span className="text-white">{errors.stock.message}</span>)}
 
             {/* create product button */}
-            <button className="w-full py-2 bg-gradient text-black rounded-lg" >CREATE</button>
+            <button className="w-full py-2 bg-gradient rounded-lg" >CREATE</button>
           </form>
         </div>
       </section>

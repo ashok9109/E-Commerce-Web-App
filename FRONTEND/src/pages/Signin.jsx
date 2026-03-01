@@ -12,6 +12,7 @@ const signin = () => {
 
   const signinhandler = async (user) => {
     try {
+      console.log("this is the user", user)
       const loggedInUser = await signinUser(user);
       if (loggedInUser) {
         dispatch(loginuser(loggedInUser))
@@ -25,7 +26,7 @@ const signin = () => {
   }
   return (
     <>
-      <section className="min-h-screen md:min-h-screen w-full flex items-center justify-center bg-gradient">
+      <section className="min-h-screen md:min-h-screen w-full flex items-center justify-center bg-background">
 
         {/* left div */}
         <div className="w-full md:h-140 md:w-230 flex items-center justify-center rounded-lg relative overflow-hidden shadow-lg shadow-black mt-4">

@@ -3,9 +3,9 @@ import aboutpic from '../images/aboutpic.png';
 const About = () => {
   return (
     <>
-      <section className='min-h-screen w-full pt-4'>
+      <section className='min-h-screen w-full'>
 
-        <div className="w-full bg-gradient rounded-lg md:p-30">
+        <div className="w-full bg-background rounded-lg md:p-30">
 
           <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
 

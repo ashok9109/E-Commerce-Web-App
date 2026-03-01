@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadproduct } from '../store/reducers/productSlice';
 import LoadingProduct from '../components/LoadingProduct';
+import Contact from '../components/Contact';
 
 const Product = () => {
 
@@ -24,7 +25,6 @@ const Product = () => {
   }
 
   const { products } = useSelector((state) => state.productReducer)
-  console.log('check product', products)
 
   useEffect(() => {
     getAllProducts()
@@ -32,7 +32,7 @@ const Product = () => {
 
   return (
     <>
-      <section className='h-full w-full'>
+      <section className='min-h-screen w-full bg-background'>
         <About />
         {/* <InfiniteScroll
           dataLength={products}
@@ -41,22 +41,22 @@ const Product = () => {
           loader={<h1>Loading...</h1>}
           endMessage={<p className='text-center' ><b>Yah! You Seen it all</b></p>}
         > */}
-        <div className='h-25 flex flex-col items-center justify-center text-sm p-7'>
-          <h1 className='md:text-4xl' >WE LOVE TRENDS</h1>
-          <div className='flex gap-7' >
+        <div className='w-full flex flex-col items-center justify-center text-sm text-[#F1E99D] md:p-5'>
+          <h1 className='md:text-5xl' >WE LOVE TRENDS</h1>
+          <div className='flex gap-7 md:text-2xl p-2' >
             <h1>FEATURED PRODUCTs</h1>
             <h1>NEW PRODUCTs</h1>
             <h1>BEST PRODUCTs</h1>
           </div>
         </div>
-        <div className='h-full w-full'>
-          <div className='flex items-center justify-center flex-wrap rounded-lg ml-7 mt-5 pt-7 pl-4'>
+        <div className='min-h-full w-full'>
+          <div className='flex flex-col md:flex-row items-center justify-center gap-5 flex-wrap rounded-lg'>
             {products.map((p, i) => (
               <ProductTemplate p={p} />
             ))}
           </div>
         </div>
-        <Footer />
+        <Contact/>
       </section>
     </>
   )
