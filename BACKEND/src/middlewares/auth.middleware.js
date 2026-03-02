@@ -1,9 +1,11 @@
-
 const jtw = require("jsonwebtoken");
 const userModel = require("../models/user.model");
 
 
-const authuser = async (req, res, next) => {
+// =====================
+// Auth middleware
+// =====================
+const authMiddleware = async (req, res, next) => {
     let token = req.cookies.token;
 
     try {
@@ -27,9 +29,9 @@ const authuser = async (req, res, next) => {
         next();
 
     } catch (error) {
-        console.log("error is auth middleware", error.message);
+        console.log("error is auth middleware", error);
     }
 
-}
+};
 
-module.exports = { authuser };
+module.exports = { authMiddleware };

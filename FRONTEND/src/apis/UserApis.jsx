@@ -1,6 +1,8 @@
 import axiosInstance from "../api/config";
 
+// =====================
 // signup user api
+// =====================
 
 export const signupUser = async (user) => {
     try {
@@ -14,7 +16,9 @@ export const signupUser = async (user) => {
     }
 };
 
+// =====================
 // sign user api
+// =====================
 
 export const signinUser = async (user) => {
     try {
@@ -28,7 +32,10 @@ export const signinUser = async (user) => {
     }
 };
 
+
+// =====================
 // logout user api
+// =====================
 
 export const logoutUser = async () => {
     try {
@@ -39,4 +46,4 @@ export const logoutUser = async () => {
     } catch (error) {
         console.log("api logout error---", error)
     }
-}
+};

@@ -24,35 +24,35 @@ const Nav = () => {
 
                 {/* maping and showing the nav links */}
                 <div className="flex gap-15 hidden md:flex">
-                    <NavLink to='/'>Home</NavLink>
+                    <NavLink className={({ isActive }) => isActive ? "border-b border-[#F1E99D]" : ""} to='/'>Home</NavLink>
 
-                    <NavLink to='/product'>Collection</NavLink>
+                    <NavLink className={({isActive})=> isActive ?"border-b border-[#F1E99D]":""} to='/product'>Collection</NavLink>
 
                     {user ? (
                         <>
-                            <NavLink to='/cart'>Cart</NavLink>
+                            <NavLink className={({isActive})=> isActive ? "border-b border-[#F1E99D]":""} to='/cart'>Cart</NavLink>
 
                             {user?.role == "admin" && (
-                                <NavLink to='/create-product'>Create Product</NavLink>
+                                <NavLink className={({isActive})=> isActive ?"border-b border-[#F1E99D]":""} to='/create-product'>Create Product</NavLink>
                             )}
 
                             {user?.role == "user" && (
-                                <NavLink to='/create-product'>Create Product</NavLink>
+                                <NavLink className={({isActive})=> isActive ?"border-b border-[#F1E99D]":""} to='/create-product'>Create Product</NavLink>
                             )}
 
-                            <NavLink to='/setting'>Settings</NavLink>
+                            <NavLink className={({isActive})=> isActive ?"border-b border-[#F1E99D]":""} to='/setting'>Settings</NavLink>
                         </>
                     ) : (
                         <>
-                            <NavLink to='/cart'>Cart</NavLink>
+                            <NavLink className={({isActive})=> isActive ?"border-b border-[#F1E99D]":""} to='/cart'>Cart</NavLink>
 
-                            <NavLink to='/create-product'>Create Product</NavLink>
+                            <NavLink className={({isActive})=> isActive ?"border-b border-[#F1E99D]":""} to='/create-product'>Create Product</NavLink>
 
-                            <NavLink to='/contact'>Contact</NavLink>
+                            <NavLink className={({isActive})=> isActive ?"border-b border-[#F1E99D]":""} to='/contact'>Contact</NavLink>
 
-                            <NavLink to='/setting'>Settings</NavLink>
+                            <NavLink className={({isActive})=> isActive ?"border-b border-[#F1E99D]":""} to='/setting'>Settings</NavLink>
 
-                            <NavLink to='/signin'>Login</NavLink>
+                            <NavLink className={({isActive})=> isActive ?"border-b border-[#F1E99D]":""} to='/signin'>Login</NavLink>
                         </>
                     )}
                 </div>

@@ -12,13 +12,14 @@ app.use(cors({
 }))
 app.use(cookieParser());
 
-// user api
-
+// =================
+// User api
+// =================
 app.use("/api/auth", authRouter);
 
-
-// product api
-
+// ===============
+// Product api
+// ================
 app.use("/api/products", productRouter);
 
 

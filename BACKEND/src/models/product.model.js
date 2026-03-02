@@ -5,38 +5,37 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description:{
-        type:String,
-        required:true
+    description: {
+        type: String,
+        required: true
     },
-    price:{
-        amount:{
-            type:Number,
-            required:true
+    price: {
+        amount: {
+            type: Number,
+            required: true
         },
-        currency:{
-            type:String,    
-            required:true,
-            enum:["INR","USD"]
+        currency: {
+            type: String,
+            required: true,
+            enum: ["INR", "USD"]
         }
     },
-    image:{
-        type:String,
-        required:true
+    image: {
+        type: String,
+        required: true
     },
-    stock:{
-        type:Number,
-        required:true,
-        default:0
+    stock: {
+        type: Number,
+        required: true,
+        default: 0
     },
-    seller:{
+    seller: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:"user",
-        required:true
+        ref: "user",
     },
-    brand:{
-        type:String,
-        required:true
+    brand: {
+        type: String,
+        required: true
     }
 });
 

@@ -1,30 +1,23 @@
-import { lazy, Suspense } from 'react';
-// import useInfinite from '../utils/useInfinite';
+import { lazy } from 'react';
 import About from './About';
-// import InfiniteScroll from "react-infinite-scroll-component";
 const ProductTemplate = lazy(() => import('../components/ProductTemplate'));
-import Footer from '../components/Footer';
-import { fetchAllProduct } from '../apis/ProductApis';
+import { fetchAllProductApi } from '../apis/ProductApis';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadproduct } from '../store/reducers/productSlice';
-import LoadingProduct from '../components/LoadingProduct';
 import Contact from '../components/Contact';
 
 const Product = () => {
 
   const dispatch = useDispatch();
-  // const { products, hasmore, fatchlazyproducts } = useInfinite();
+  const { products } = useSelector((state) => state.productReducer)
 
   const getAllProducts = async () => {
-    const res = await fetchAllProduct();
+    const res = await fetchAllProductApi();
     if (res) {
-      console.log('this res set in product', res)
       dispatch(loadproduct(res))
     }
   }
-
-  const { products } = useSelector((state) => state.productReducer)
 
   useEffect(() => {
     getAllProducts()
@@ -33,14 +26,10 @@ const Product = () => {
   return (
     <>
       <section className='min-h-screen w-full bg-background'>
+        {/* About */}
         <About />
-        {/* <InfiniteScroll
-          dataLength={products}
-          next={fatchlazyproducts}
-          hasMore={hasmore}
-          loader={<h1>Loading...</h1>}
-          endMessage={<p className='text-center' ><b>Yah! You Seen it all</b></p>}
-        > */}
+
+        {/* Heading product page */}
         <div className='w-full flex flex-col items-center justify-center text-sm text-[#F1E99D] md:p-5'>
           <h1 className='md:text-5xl' >WE LOVE TRENDS</h1>
           <div className='flex gap-7 md:text-2xl p-2' >
@@ -49,6 +38,8 @@ const Product = () => {
             <h1>BEST PRODUCTs</h1>
           </div>
         </div>
+
+        {/* Mapping products */}
         <div className='min-h-full w-full'>
           <div className='flex flex-col md:flex-row items-center justify-center gap-5 flex-wrap rounded-lg'>
             {products.map((p, i) => (
@@ -56,7 +47,7 @@ const Product = () => {
             ))}
           </div>
         </div>
-        <Contact/>
+        <Contact />
       </section>
     </>
   )
