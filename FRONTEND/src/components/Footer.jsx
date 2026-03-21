@@ -1,4 +1,4 @@
-import logo from '../images/upstare-logo.png'
+import logo from '../images/logo.png'
 
 const Footer = () => {
     return (
@@ -29,7 +29,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className='flex items-center justify-center'>
-                        <img className='h-15' src={logo} alt="upstare logo" />
+                        <img className='h-15' src={logo} alt="logo" />
                     </div>
                 </div>
                 <div className='md:h1-23 w-full border-t text-white mt-5 ' >
@@ -38,7 +38,7 @@ const Footer = () => {
                         <h1>Advertise</h1>
                         <h1>Gift Cards</h1>
                         <h1>Help Center</h1>
-                        <h1>© 2026 Upstare Research. All rights reserved. Powered by Ashok Yadav.</h1>
+                        <h1>© 2026. All rights reserved. Powered by Ashok Yadav.</h1>
                     </div>
                 </div>
             </footer>

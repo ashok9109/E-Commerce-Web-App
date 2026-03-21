@@ -41,7 +41,6 @@ async function signupUser(req, res) {
                 id: user.id,
                 email: user.email,
                 fullName: user.fullName,
-                role: user.role
             }
         })
 
@@ -62,7 +61,7 @@ async function signupUser(req, res) {
 
 async function signinUser(req, res) {
     try {
-        const { email, password} = req.body;
+        const { email, password } = req.body;
 
         const user = await userModel.findOne({ email });
 
@@ -85,8 +84,8 @@ async function signinUser(req, res) {
         res.cookie("token", token, {
             httpOnly: true,
             sameSite: "none",
-            secure: false
-        })
+            secure: "none"
+        });
 
         res.status(200).json({
             message: " user logged successfully",
@@ -95,16 +94,15 @@ async function signinUser(req, res) {
                 email: user.email,
                 fullName: user.fullName,
                 role: user.role,
-
             }
         })
 
     } catch (error) {
         console.log("error while login user", error);
         return res.status(500).json({
-            success:false,
-            messsage:"Internal server error",
-            error:error
+            success: false,
+            messsage: "Internal server error",
+            error: error
         })
     }
 

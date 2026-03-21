@@ -15,7 +15,7 @@ const authMiddleware = async (req, res, next) => {
             });
         };
 
-        let decode = jtw.verify(token, process.env.JWT_SECRET);
+        let decode = jtw.decode(token, process.env.JWT_SECRET);
 
         let user = await userModel.findById(decode.id);
 

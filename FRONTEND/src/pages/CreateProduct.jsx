@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import { createProductApi } from "../store/actions/productAction";
+import { createProductApi } from "../apis/ProductApis";
 
 
 const CreateProduct = () => {
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -22,7 +20,7 @@ const CreateProduct = () => {
       stock: product.stock,
       brand: product.brand
     }
-    const response =   dispatch(createProductApi(newProductObj))
+    const response =  await createProductApi(newProductObj);
     if (response) {
       console.log("product created")
     }
@@ -38,7 +36,7 @@ const CreateProduct = () => {
 
 
           {/* form and input fields */}
-          <form onSubmit={handleSubmit(CreateProductHandler)} className="w-full max-w-2xl flex flex-col items-center justify-center border-2 text-[#F1E99D] rounded-lg p-4">
+          <form onSubmit={handleSubmit(CreateProductHandler)} className="w-full max-w-2xl flex flex-col items-center justify-center border-2 text-[#F1E99D] bg-gradient rounded-lg p-4">
 
             {/* Title input */}
             <input {...register("title", { required: "Title is required" })}
@@ -90,7 +88,7 @@ const CreateProduct = () => {
             {errors.brand && (<span className="text-white">{errors.brand.message}</span>)}
 
             {/* create product button */}
-            <button className="w-full py-2 bg-gradient rounded-lg" >CREATE</button>
+            <button className="w-full py-2 bg-black rounded-lg" >CREATE</button>
           </form>
         </div>
       </section>

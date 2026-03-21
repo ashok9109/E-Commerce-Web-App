@@ -6,7 +6,7 @@ import axiosInstance from "../api/config"
 // =========================
 export const fetchAllProductApi = async()=>{
     try {
-        const reponse = await axiosInstance.get("/api/products");
+        const reponse = await axiosInstance.get("/api/products/all-products");
         if(reponse){
             return reponse.data.products
         }

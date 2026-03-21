@@ -1,25 +1,16 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router';
-import { signinUser } from "../apis/UserApis";
-import { toast } from "react-toastify";
+import { Link } from 'react-router';
 import { useDispatch } from "react-redux";
-import { loginuser } from "../store/reducers/userSlice";
+import { asyncSigninUser } from "../store/actions/userActions";
 
 const signin = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate();
-  const { register, handleSubmit, reset, formState: { errors } } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
 
   const signinhandler = async (user) => {
     try {
-      console.log("this is the user", user)
-      const loggedInUser = await signinUser(user);
-      if (loggedInUser) {
-        dispatch(loginuser(loggedInUser))
-        toast.success("Signin Successfully")
-        navigate("/");
-      }
-      reset()
+      console.log("this form user", user)
+      dispatch(asyncSigninUser(user));
     } catch (error) {
       console.log("login form error", error)
     }

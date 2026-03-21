@@ -1,12 +1,12 @@
 const express = require("express");
-const {getAllProducts, createProductController} = require("../controllers/product.controller")
+const { createProductController, getAllProducts} = require("../controllers/product.controller")
 
 const router = express.Router();
 
 // ========================
 // Get all product api
 // ========================
-router.get("/", getAllProducts);
+router.get("/All-products", getAllProducts);
 
 // ========================
 // Create product api

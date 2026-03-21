@@ -38,17 +38,23 @@ const createProductController = async (req, res) => {
 // =======================================
 // fetching all product Controller
 // =======================================
-async function getAllProducts(req, res) {
+const getAllProducts = async(req, res) => {
     try {
         const products = await productModel.find();
 
         res.status(200).json({
+            success:true,
             message: "product fetch successfully",
             products
         })
 
     } catch (error) {
-        console.log("error in fetching products", error)
+        console.log("error in fetching products", error);
+        return res.status(500).json({
+            success:false,
+            message:"Internal server error",
+            error:error
+        })
     }
 }
 

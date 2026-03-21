@@ -12,16 +12,16 @@ const App = () => {
   useEffect(()=>{
     (async ()=>{
       try {
-        let res = await axiosInstance.get("/api/auth/me");
-        console.log("app.jsx user--", res.data.user)
+        const res = await axiosInstance.get("/api/auth/me");
+        console.log("this the current use")
         if(res){
-          dispatch(loginuser(res?.data?.user));
+          dispatch(loginuser(res?.data.user));
         }
       } catch (error) {
-        console.log("error in /me" ,error);
+        console.log("error in while fetching current user", error);
       }
     })()
-  },[])
+  },[dispatch])
 
   return (
     <>
