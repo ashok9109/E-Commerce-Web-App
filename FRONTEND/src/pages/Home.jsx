@@ -39,7 +39,7 @@ const dispatch = useDispatch();
           </div>
         </div>  
 
-       <div className='flex flex-col md:flex-row items-center justify-center gap-5 flex-wrap' >
+       <div className='flex flex-col md:flex-row items-center justify-center flex-wrap md:pl-5' >
         {products.map((p, i)=>(
           <ProductTemplate p={p}/>
         ))}

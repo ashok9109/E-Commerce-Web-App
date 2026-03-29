@@ -11,8 +11,6 @@ const Product = () => {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.productReducer)
 
-  console.log("product page data=", products)
-
   const getAllProducts = async () => {
     const res = await fetchAllProductApi();
     if (res) {
@@ -28,15 +26,15 @@ const Product = () => {
     <>
       <section className='min-h-screen w-full bg-background pt-20'> 
 
-        <section className='flex' >
+        <section className='flex flex-col md:flex-row'>
           {/* Left div */}
-          <div className='w-[20%] bg-white' >
+          <div className='w-[17%] bg-gradient rounded-lg'>
             <h1>hellow</h1>
           </div>
 
         {/*Right div Mapping products */}
-        <div className='min-h-full w-full'>
-          <div className='flex flex-col md:flex-row items-center justify-center gap-5 flex-wrap rounded-lg'>
+        <div className='min-h-full w-full p-4'>
+          <div className='w-full flex flex-col md:flex-row items-center justify-center flex-wrap rounded-lg'>
             {products.map((p, i) => (
               <ProductTemplate p={p} />
             ))}

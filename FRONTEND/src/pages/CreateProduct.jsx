@@ -31,7 +31,7 @@ const CreateProduct = () => {
   return (
     <>
       <section className="min-h-screen bg-background w-full text-[#F1E99D]">
-        <div className="w-full flex flex-col items-center justify-center p-5 rounded-sm">
+        <div className="w-full flex flex-col items-center justify-center p-5 rounded-sm md:p-20">
           <h1 className="text-3xl font-bold text-gradient" >Create New Product</h1>
 
 
