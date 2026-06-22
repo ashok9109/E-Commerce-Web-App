@@ -1,0 +1,118 @@
+import React from 'react'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import pic from '../images/aboutpic.png';
+import pic2 from '../images/home1-slider1-bg.png';
+import pic3 from '../images/home1-slider3-bg.png';
+
+
+
+const Slider = () => {
+    return (
+        <Swiper modules={[Navigation, Pagination, Autoplay]}
+        navigation
+        pagination={{clickable:true}}
+        autoplay={{delay:3000}}
+        loop={true}
+        >
+            <SwiperSlide>
+                <section className='min-h-screen w-full'>
+                
+                        <div className="w-full bg-background rounded-lg md:p-30">
+                
+                          <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
+                
+                            {/* left div */}
+                            <div className="w-full flex flex-col text-white p-5">
+                              <div className="h-[10px] w-[10px] bg-white md:mt-5"></div>
+                              <div className="h-[3px] w-[110px] bg-white mt-4"></div>
+                              <div className="h-[3px] w-[150px] bg-white mt-4"></div>
+                              <div className=" mt-8 text-xl md:text-5xl font-bold font-mon leading-[1.4]">
+                                <p>LET'S GO! <br /> THE <span className="text-orange-600 font-sans" >ADVENTURE</span> IS <br /> WAITING FOR YOU </p>
+                              </div>
+                              <div className="mb-5" >
+                                <p>UP TO <span className="text-green-600" >50%</span> OFF ON TOP BRANDS </p>
+                              </div>
+                              <div>
+                                <button className="bg-orange-600 px-5 py-2 rounded-lg hover:bg-orange-500">shop now</button>
+                              </div>
+                            </div>
+                
+                            {/* right div */}
+                            <div className="w-full flex items-center justify-center">
+                              <img id='image' className="h-40 md:h-80 md:mt-10 md:ml-20 " src={pic} alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+            </SwiperSlide>
+            <SwiperSlide>
+                <section className='min-h-screen w-full'>
+                
+                        <div className="w-full bg-background rounded-lg md:p-30">
+                
+                          <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
+                
+                            {/* left div */}
+                            <div className="w-full flex flex-col text-white p-5">
+                              <div className="h-[10px] w-[10px] bg-white md:mt-5"></div>
+                              <div className="h-[3px] w-[110px] bg-white mt-4"></div>
+                              <div className="h-[3px] w-[150px] bg-white mt-4"></div>
+                              <div className=" mt-8 text-xl md:text-5xl font-bold font-mon leading-[1.4]">
+                                <p>LET'S WATCH! <br /> THE <span className="text-orange-600 font-sans" >ENTERTAINMENT</span> IS <br /> WAITING FOR YOU </p>
+                              </div>
+                              <div className="mb-5" >
+                                <p>UP TO <span className="text-green-600" >30%</span> OFF ON TOP BRANDS </p>
+                              </div>
+                              <div>
+                                <button className="bg-orange-600 px-5 py-2 rounded-lg hover:bg-orange-500">shop now</button>
+                              </div>
+                            </div>
+                
+                            {/* right div */}
+                            <div className="w-full flex items-center justify-center">
+                              <img id='image' className="h-40 md:h-100 md:mt-10 md:ml-20 " src={pic2} alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+            </SwiperSlide>
+            <SwiperSlide>
+                <section className='min-h-screen w-full'>
+                
+                        <div className="w-full bg-background rounded-lg md:p-30">
+                
+                          <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
+                
+                            {/* left div */}
+                            <div className="w-full flex flex-col text-white p-5">
+                              <div className="h-[10px] w-[10px] bg-white md:mt-5"></div>
+                              <div className="h-[3px] w-[110px] bg-white mt-4"></div>
+                              <div className="h-[3px] w-[150px] bg-white mt-4"></div>
+                              <div className=" mt-8 text-xl md:text-5xl font-bold font-mon leading-[1.4]">
+                                <p>LET'S COOK! <br /> THE <span className="text-orange-600 font-sans" > SMART COOKING</span> IS <br /> WAITING FOR YOU </p>
+                              </div>
+                              <div className="mb-5" >
+                                <p>UP TO <span className="text-green-600" >40%</span> OFF ON TOP BRANDS </p>
+                              </div>
+                              <div>
+                                <button className="bg-orange-600 px-5 py-2 rounded-lg hover:bg-orange-500">shop now</button>
+                              </div>
+                            </div>
+                
+                            {/* right div */}
+                            <div className="w-full flex items-center justify-center">
+                              <img id='image' className="h-40 md:h-100 md:mt-10 md:ml-20 " src={pic3} alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+            </SwiperSlide>
+        </Swiper>
+    )
+}
+
+export default Slider;
