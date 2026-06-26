@@ -28,7 +28,7 @@ const Product = () => {
 
         <section className='flex flex-col md:flex-row'>
           {/* Left div */}
-          <div className='w-[17%] bg-gradient rounded-lg'>
+          <div className='h-full w-full md:h-full md:w-[17%] bg-gradient rounded-lg'>
             <h1>hellow</h1>
           </div>
 

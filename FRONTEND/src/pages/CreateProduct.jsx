@@ -20,7 +20,7 @@ const CreateProduct = () => {
       stock: product.stock,
       brand: product.brand
     }
-    const response =  await createProductApi(newProductObj);
+    const response = await createProductApi(newProductObj);
     if (response) {
       console.log("product created")
     }
@@ -31,28 +31,28 @@ const CreateProduct = () => {
   return (
     <>
       <section className="min-h-screen bg-background w-full text-[#F1E99D]">
-        <div className="w-full flex flex-col items-center justify-center p-5 rounded-sm md:p-20">
-          <h1 className="text-3xl font-bold text-gradient" >Create New Product</h1>
+        <div className="w-full flex flex-col items-center justify-center gap-10 md:gap-0 p-5 rounded-sm">
+          <h1 className="font-bold text-gradient md:text-3xl" >Create New Product</h1>
 
 
           {/* form and input fields */}
-          <form onSubmit={handleSubmit(CreateProductHandler)} className="w-full max-w-2xl flex flex-col items-center justify-center border-2 text-[#F1E99D] bg-gradient rounded-lg p-4">
+          <form onSubmit={handleSubmit(CreateProductHandler)} className="w-full max-w-2xl flex flex-col items-center gap-10 justify-center border-2 text-[#F1E99D] bg-gradient rounded-lg p-4">
 
             {/* Title input */}
             <input {...register("title", { required: "Title is required" })}
-              className="w-full text-2xl border-2  px-2 py-4 mb-2 rounded-lg outline-0"
+              className="w-full border-2 mb-2 rounded-sm outline-0 p-1"
               type="text" name="title" placeholder="Product Title" />
             {errors.title && (<span className="text-white" >{errors.title.message}</span>)}
 
             {/* Description */}
             <textarea {...register("description", { required: "Description is required" })}
-              className="w-full text-2xl border-2 px-2 py-3 text-center mb-4 rounded-lg outline-0"
+              className="w-full border-2 text-center rounded-sm outline-0"
               type="text" name="description" placeholder="Product Description Here....">
             </textarea>
             {errors.description && (<span className="text-white">{errors.description.message}</span>)}
 
             {/* Price input */}
-            <div className="w-full text-2xl border-2 px-2 py-4 mb-4 rounded-lg">
+            <div className="w-full border-2 rounded-sm">
               <label> price</label>
               <div className="flex items-center justify-between border-2 p-3">
                 <input {...register("amount", { required: "Amount is required " })}
@@ -69,21 +69,33 @@ const CreateProduct = () => {
               {errors.amount && (<span className="text-white text-sm" >{errors.amount.message}</span>)}
             </div>
 
+            {/* category */}
+            <select className="w-full outline-0 border-2 rounded-sm p-1" >
+                <option value="laptop">Laptop</option>
+                <option value="gaming">Gaming</option>
+                <option value="smartphone">Smartphone</option>
+                <option value="electronics">Electronics</option>
+                <option value="men clothing">Man's Clothings</option>
+                <option value="women clothing">Women's Clothigs</option>
+                <option value="fashion">Fashion</option>
+                <option value="television">Televisions</option>
+            </select>
+
             {/* Image input */}
             <input {...register("image", { required: "Image is required" })}
-              className=" w-full text-2xl border-2 px-2 py-2 mb-4 rounded-lg outline-0"
+              className=" w-full border-2 rounded-sm outline-0 p-1"
               type="url" name="image" placeholder="Product Image Url" />
             {errors.image && (<span className="text-white" >{errors.image.message}</span>)}
 
             {/* Stock input */}
             <input {...register("stock", { required: "Stock numder is required" })}
-              className=" w-full text-2xl border-2 px-2 py-2 mb-4 rounded-lg outline-0"
+              className=" w-full border-2 rounded-sm outline-0 p-1"
               type="number" name="stock" placeholder="Product Stock" />
             {errors.stock && (<span className="text-white">{errors.stock.message}</span>)}
 
             {/* Brand input */}
             <input {...register("brand", { required: "Brand is required" })}
-              className=" w-full text-2xl border-2 px-2 py-2 mb-4 rounded-lg outline-0"
+              className=" w-full border-2 rounded-sm outline-0 p-1"
               type="text" name="brand" placeholder="Brand Name" />
             {errors.brand && (<span className="text-white">{errors.brand.message}</span>)}
 
