@@ -1,5 +1,5 @@
 const express = require("express");
-const { createProductController, getAllProducts} = require("../controllers/product.controller")
+const { createProductController, getAllProducts, fetchingsSinglePorduct} = require("../controllers/product.controller")
 
 const router = express.Router();
 
@@ -12,5 +12,11 @@ router.get("/All-products", getAllProducts);
 // Create product api
 // =========================
 router.post("/create", createProductController);
+
+// =============================
+// fetching singel product
+// ==============================
+router.get("/single/product/:id", fetchingsSinglePorduct);
+
 
 module.exports = router;

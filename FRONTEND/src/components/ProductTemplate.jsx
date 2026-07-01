@@ -28,13 +28,14 @@ const ProductTemplate = ({ p }) => {
         <img className='h-[50%] w-full' src={p.image} alt="product image" />
         <h1 className='text-xl mt-4 mb-3 underline' >{p.title.slice(0, 18)}</h1>
         <div className='flex items-center justify-evenly mb-5'>
-          <h1>_{p.brand}_</h1>
-          <h1><span className='text-red-600' >price</span>:- {p.price.currency}</h1>
-          <h1><span className='text-red-600' >price</span>:- {p.price.amount}</h1>
+          <h1> <span className="text-red-600" >Brand</span> :- {p.brand}</h1>
+          <h1><span className='text-red-600' >price</span> :- {p.price.currency}</h1>
+          <h1><span className='text-red-600' >price</span> :- {p.price.amount}</h1>
         </div>
+          <h1><span className='text-red-600' >Category</span> :- {p.category}</h1>
         <p>{p.description.slice(0, 40)}....</p>
         <div className='flex justify-between mt-3' >
-          <Link className='text-blue-600' > More Info</Link>
+          <Link to={`/product/details/${p._id}`} className='text-blue-600' > More Info</Link>
           <button onClick={AddtoCardHandler}
             className='bg-orange-600 text-white px-5 py-1 rounded-sm' >Add to Cart</button>
         </div>

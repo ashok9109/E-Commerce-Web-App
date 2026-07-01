@@ -8,7 +8,7 @@ const productModel = require("../models/product.model");
 const createProductController = async (req, res) => {
     try {
 
-        const { title, description, price: { amount, currency }, image, stock, brand } = req.body;
+        const { title, description, price: { amount, currency }, image, stock, category , brand } = req.body;
 
         const newProduct = await productModel.create({
             title,
@@ -16,6 +16,7 @@ const createProductController = async (req, res) => {
             price: { amount, currency },
             image,
             stock,
+            category,
             brand
         });
 
@@ -58,4 +59,41 @@ const getAllProducts = async(req, res) => {
     }
 }
 
-module.exports = { getAllProducts, createProductController }
+
+// ===========================================
+// Fetching the single product
+// ===========================================
+
+const fetchingsSinglePorduct = async(req, res)=>{
+    try {
+        const productId = req.params.id;
+
+        const product =  await productModel.findById(productId);
+
+        if(!product){
+            return res.status(404).json({
+                success:false,
+                message:"Product details not found"
+            })
+        }
+
+        return res.status(200).json({
+            success:true,
+            message:"Product details fetched successfully",
+            product
+        });
+
+
+    } catch (error) {
+        console.log("error while fetching product", error);
+        return res.status(500).json({
+            success:false,
+            message:"Internal server error",
+            error:error
+        });
+    };
+};
+
+
+
+module.exports = { getAllProducts, createProductController, fetchingsSinglePorduct }

@@ -8,6 +8,7 @@ import Signin from "../pages/Signin";
 import Setting from "../pages/Setting";
 import PageNotFound from "../pages/PageNotFound";
 import Contact from "../components/Contact";
+import ProductDetails from "../pages/ProductDetails"
 
 
 const Mainroutes = () => {
@@ -23,6 +24,7 @@ const Mainroutes = () => {
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/setting" element={<Setting />} />
                 <Route path="*" element={<PageNotFound />} />
+                <Route path="/product/details/:id" element={<ProductDetails/>} />
             </Routes>
         </>
     )

@@ -18,7 +18,8 @@ const CreateProduct = () => {
       },
       image: product.image,
       stock: product.stock,
-      brand: product.brand
+      brand: product.brand,
+      category: product.category
     }
     const response = await createProductApi(newProductObj);
     if (response) {
@@ -70,15 +71,16 @@ const CreateProduct = () => {
             </div>
 
             {/* category */}
-            <select className="w-full outline-0 border-2 rounded-sm p-1" >
-                <option value="laptop">Laptop</option>
-                <option value="gaming">Gaming</option>
-                <option value="smartphone">Smartphone</option>
-                <option value="electronics">Electronics</option>
-                <option value="men clothing">Man's Clothings</option>
-                <option value="women clothing">Women's Clothigs</option>
-                <option value="fashion">Fashion</option>
-                <option value="television">Televisions</option>
+            <select {...register("category")}
+             className="w-full outline-0 border-2 rounded-sm p-1">
+                <option className="text-black" value="laptop">Laptop</option>
+                <option className="text-black" value="gaming">Gaming</option>
+                <option className="text-black" value="smartphone">Smartphone</option>
+                <option className="text-black" value="electronics">Electronics</option>
+                <option className="text-black" value="men clothing">Man's Clothings</option>
+                <option className="text-black" value="women clothing">Women's Clothigs</option>
+                <option className="text-black" value="fashion">Fashion</option>
+                <option className="text-black" value="television">Televisions</option>
             </select>
 
             {/* Image input */}
