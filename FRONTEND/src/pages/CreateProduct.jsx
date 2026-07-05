@@ -77,8 +77,8 @@ const CreateProduct = () => {
                 <option className="text-black" value="gaming">Gaming</option>
                 <option className="text-black" value="smartphone">Smartphone</option>
                 <option className="text-black" value="electronics">Electronics</option>
-                <option className="text-black" value="men clothing">Man's Clothings</option>
-                <option className="text-black" value="women clothing">Women's Clothigs</option>
+                <option className="text-black" value="menclothing">Man's Clothings</option>
+                <option className="text-black" value="womenclothing">Women's Clothigs</option>
                 <option className="text-black" value="fashion">Fashion</option>
                 <option className="text-black" value="television">Televisions</option>
             </select>

@@ -3,7 +3,7 @@ import logo from '../images/logo.png'
 const Footer = () => {
     return (
         <>
-            <footer className='w-full md:h-100 w-full bg-[#0E1B24] mt-5 p-10 rounded-t-4xl' >
+            <footer className='w-full md:h-100 w-full bg-[#0E1B24] p-10' >
                 <div className='md:h-65 w-full flex flex-col md:flex-row items-center justify-evenly gap-10' >
                     <div className='w-full md:h-60 md:w-230 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-25 text-white' >
                         <div className='w-full flex flex-col' >
