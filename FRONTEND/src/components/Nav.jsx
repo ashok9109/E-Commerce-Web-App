@@ -7,7 +7,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className='h-17 w-full flex items-center justify-between bg-gradient relative text-lg text-[#F1E99D] fixed z-99 p-6' >
+            <nav className='h-17 w-full flex items-center justify-between bg-gradient fixed text-lg text-[#F1E99D] fixed z-99 p-6' >
 
                 {/* heading */}
                 <h1 className="text-[#F1E99D] text-sm md:text-lg"> <span className="text-black">e</span> -comm</h1>

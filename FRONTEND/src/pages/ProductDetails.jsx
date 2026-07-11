@@ -32,6 +32,26 @@ const ProductDetails = () => {
   }, [id])
 
 
+  // ===============================
+  // Add to cart api
+  // ================================
+
+  const addToCard = async () => {
+
+    try {
+      console.log('this data', product._id, quantity)
+      const response = await axiosInstance.post('/api/atc/add/to/cart', { productId: product._id, quantity:quantity });
+
+      if (response) {
+        console.log("this response", response)
+      }
+
+    } catch (error) {
+      console.log("error while cart", error)
+    }
+
+  }
+
   const increasequantity = () => {
     setQuantity(quantity + 1)
   }
@@ -47,23 +67,23 @@ const ProductDetails = () => {
   return (
     <section>
 
-      <main className='h-screen w-full flex flex-col md:flex-row items-center bg-background' >
+      <main className='h-full w-full flex flex-col md:flex-row items-center bg-background' >
 
         {/* lefte div */}
-        <div className='h-full w-full border-r-1 border-white flex items-center p-10 justify-center' >
-          <img className='h-full md:h-[300px] rounded-lg' src={product.image} alt="product image" />
+        <div className='h-full w-full border-r-1 border-white flex items-center p-10 md:p-60 justify-center' >
+          <img className='h-full md:h-[350px] rounded-lg' src={product.image} alt="product image" />
         </div>
 
         {/* Right div */}
-        <div className='h-full w-full flex flex-col  p-5 md:p-10 text-white' >
+        <div className='h-full w-full flex flex-col gap-6 p-5 md:p-10 text-white' >
           <h1 className='text-xl md:text-4xl font-bold' >{product.title}</h1>
           <h1>Price :- {product.price?.currency} {product.price?.amount}</h1>
           <h1>⭐⭐⭐⭐⭐ (Customer Review)</h1>
           <p className='' >{product.description}</p>
 
           {/* add to cart button and counting button div */}
-          <div className='flex items-center justify-center gap-2 md:gap-20' >
-            <div className='flex itmes-center justify-center gap-2 md:gap-10' >
+          <div className='flex items-center justify-center gap-2 md:gap-10' >
+            <div className='flex itmes-center justify-center gap-2 md:gap-5 border-2 p-2 rounded-sm' >
               <span>Quantity</span>
               <button className='' onClick={decreasequantity} >
                 <Minus />
@@ -75,7 +95,7 @@ const ProductDetails = () => {
             </div>
 
             {/* add to cart */}
-            <button className='bg-black text-white p-2 text-sm md:px-10 md:py-4 rounded-sm' >
+            <button onClick={addToCard} className='bg-black text-white p-2 text-sm md:px-10 md:py-4 rounded-sm' >
               ADD TO CART
             </button>
           </div>

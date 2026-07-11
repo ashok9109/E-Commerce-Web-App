@@ -32,7 +32,7 @@ const CreateProduct = () => {
   return (
     <>
       <section className="min-h-screen bg-background w-full text-[#F1E99D]">
-        <div className="w-full flex flex-col items-center justify-center gap-10 md:gap-0 p-5 rounded-sm">
+        <div className="w-full flex flex-col items-center justify-center gap-10 md:gap-0 p-5 md:p-20 rounded-sm">
           <h1 className="font-bold text-gradient md:text-3xl" >Create New Product</h1>
 
 
@@ -44,13 +44,6 @@ const CreateProduct = () => {
               className="w-full border-2 mb-2 rounded-sm outline-0 p-1"
               type="text" name="title" placeholder="Product Title" />
             {errors.title && (<span className="text-white" >{errors.title.message}</span>)}
-
-            {/* Description */}
-            <textarea {...register("description", { required: "Description is required" })}
-              className="w-full border-2 text-center rounded-sm outline-0"
-              type="text" name="description" placeholder="Product Description Here....">
-            </textarea>
-            {errors.description && (<span className="text-white">{errors.description.message}</span>)}
 
             {/* Price input */}
             <div className="w-full border-2 rounded-sm">
@@ -72,15 +65,15 @@ const CreateProduct = () => {
 
             {/* category */}
             <select {...register("category")}
-             className="w-full outline-0 border-2 rounded-sm p-1">
-                <option className="text-black" value="laptop">Laptop</option>
-                <option className="text-black" value="gaming">Gaming</option>
-                <option className="text-black" value="smartphone">Smartphone</option>
-                <option className="text-black" value="electronics">Electronics</option>
-                <option className="text-black" value="menclothing">Man's Clothings</option>
-                <option className="text-black" value="womenclothing">Women's Clothigs</option>
-                <option className="text-black" value="fashion">Fashion</option>
-                <option className="text-black" value="television">Televisions</option>
+              className="w-full outline-0 border-2 rounded-sm p-1">
+              <option className="text-black" value="laptop">Laptop</option>
+              <option className="text-black" value="gaming">Gaming</option>
+              <option className="text-black" value="smartphone">Smartphone</option>
+              <option className="text-black" value="electronics">Electronics</option>
+              <option className="text-black" value="menclothing">Man's Clothings</option>
+              <option className="text-black" value="womenclothing">Women's Clothigs</option>
+              <option className="text-black" value="fashion">Fashion</option>
+              <option className="text-black" value="television">Televisions</option>
             </select>
 
             {/* Image input */}
@@ -100,6 +93,13 @@ const CreateProduct = () => {
               className=" w-full border-2 rounded-sm outline-0 p-1"
               type="text" name="brand" placeholder="Brand Name" />
             {errors.brand && (<span className="text-white">{errors.brand.message}</span>)}
+
+            {/* Description */}
+            <textarea {...register("description", { required: "Description is required" })}
+              className="w-full border-2 text-center rounded-sm outline-0"
+              type="text" name="description" placeholder="Product Description Here....">
+            </textarea>
+            {errors.description && (<span className="text-white">{errors.description.message}</span>)}
 
             {/* create product button */}
             <button className="w-full py-2 bg-black rounded-lg" >CREATE</button>
